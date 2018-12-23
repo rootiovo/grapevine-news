@@ -7,7 +7,7 @@ class Markets extends Component {
         <div className="weather">
           <div className="card">
             <div className="card-header">
-              Markets
+            <i className="fas fa-chart-line"></i>&nbsp;<span>Markets</span>
             </div>
             <div className="card-body">
               <h5 className="card-title">Lorem ipsum</h5>

@@ -7,7 +7,7 @@ class Weather extends Component {
           <div className="weather">
             <div className="card">
               <div className="card-header">
-                Weather
+                <i className="fas fa-cloud-sun"></i>&nbsp;<span>Weather</span>
               </div>
               <div className="card-body">
                 <h5 className="card-title">Los Angeles</h5>
