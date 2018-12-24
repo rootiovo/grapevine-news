@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './markets.css';
 
 class Markets extends Component {
+
+  constructor(props) {
+    super(props);
+}
+
   render () {
     return (
         <div className="weather">
