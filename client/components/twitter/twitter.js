@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './twitter.css';
 
 class Twitter extends Component {
+
+  constructor(props) {
+    super(props);
+}
+
   render () {
     return (
       <div>

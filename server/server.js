@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
+import jsonfile from 'jsonfile';
 
 let app = express();
 
@@ -12,13 +13,22 @@ app.use(express.json())
 app.use(express.static(__dirname + '/public'));
 
 // Index Route
-app.get('/*', function(req, res) {
+app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
     }
   })
 })
+
+//News
+app.get('/api/news', async (req, res) => {
+  let Parser = require('rss-parser');
+  let parser = new Parser();
+  let feed = await parser.parseURL('https://www.theverge.com/rss/index.xml');
+
+  res.send(feed.items);
+});
 
 //Server
 app.listen(3000, () => {

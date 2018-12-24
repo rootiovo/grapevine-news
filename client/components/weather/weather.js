@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './weather.css';
 
 class Weather extends Component {
+
+  constructor(props) {
+    super(props);
+}
+
   render () {
     return (
           <div className="weather">

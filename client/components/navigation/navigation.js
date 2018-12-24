@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './navigation.css';
 
 class Navigation extends Component {
+
+  constructor(props) {
+    super(props);
+}
+
   render() {
     return (
         <nav className="navbar navbar-light bg-light justify-content-between top-fixed">

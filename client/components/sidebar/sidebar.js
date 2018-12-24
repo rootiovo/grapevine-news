@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './sidebar.css';
 
 class Sidebar extends Component {
+
+  constructor(props) {
+    super(props);
+}
+  
   render() {
     return (
       <ul className="nav flex-column float-left">

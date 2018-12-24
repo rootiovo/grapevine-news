@@ -7,6 +7,11 @@ import Markets from '../../components/markets/markets'
 import Sidebar from '../../components/sidebar/sidebar'
 
 class Main extends Component {
+
+  constructor(props) {
+    super(props);
+}
+
   render () {
     return (
       <div className="container-fluid">

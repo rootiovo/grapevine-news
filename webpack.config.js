@@ -7,6 +7,8 @@ const publicPath = path.join(__dirname, './server/public');
 module.exports = {
     name: 'client',
 
+    mode: 'development',
+
     context: __dirname,
 
     entry: ['./client/app.js'],
