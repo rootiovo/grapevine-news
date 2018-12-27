@@ -27,7 +27,7 @@ class Main extends Component {
               <Markets />
           </div>                    
       </div>      
-    </div>      
+    </div>     
     );
   }
 }

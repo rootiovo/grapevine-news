@@ -14,6 +14,7 @@ import Weather from 'components/weather/weather'
 import News from 'components/news/news'
 import Main from 'components/main/main'
 import Navigation from 'components/navigation/navigation'
+import Footer from 'components/footer/footer'
 
 class App extends Component {
   render() {
@@ -26,7 +27,8 @@ class App extends Component {
                     <Route path='/weather' component={Weather} />
                     <Route path='/news' component={News} />
                 </Switch>            
-            </BrowserRouter>             
+            </BrowserRouter>
+            <Footer />             
         </div>     
     );
   }

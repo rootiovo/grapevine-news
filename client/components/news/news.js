@@ -10,21 +10,22 @@ class News extends Component {
       super(props);
 
       this.state = {     
-        articles: [] 
+        articles: [],
+        filter: null
     };
   }
 
   componentWillMount() {
-    this.getFeed();
+    this.getNews(null);
 }
 
-  async getFeed() {
+  async getNews(filter) {
     
     try {
-        let articles = await NewsService.getNews();
+        let articles = await NewsService.getNews(filter);
 
         this.setState({
-            articles: articles,
+            articles: articles,            
         });
     }
     catch (err) {
