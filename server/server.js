@@ -1,13 +1,16 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
+import fetch from 'node-fetch';
 
+//Environment Variables
 const port = process.env.PORT || 3000;
+
 let app = express();
 
 //CORS
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
 //Static Files
 app.use(express.static(__dirname + '/public'));
@@ -39,5 +42,5 @@ app.get('/api/news', async (req, res) => {
 
 //Server
 app.listen(port, () => {
-    console.log('Listening on port' + port);
+    console.log('Listening on port ' + port);
 });

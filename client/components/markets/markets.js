@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Chart from "react-google-charts";
 import './markets.css';
 
 class Markets extends Component {
@@ -8,24 +9,43 @@ class Markets extends Component {
 }
 
   render () {
+
+    const data = [
+      ["Year", "Sales", "Expenses"],
+      ["2004", 1000, 400],
+      ["2005", 1170, 460],
+      ["2006", 660, 1120],
+      ["2007", 1030, 540]
+    ];
+
+    const options = {
+      title: "Company Performance",
+      legend: { position: "bottom" }
+    };
+    
     return (
-        <div className="weather">
+        <div className="markets">
           <div className="card">
             <div className="card-header">
             <i className="fas fa-chart-line"></i>&nbsp;<span>Markets</span>
             </div>
             <div className="card-body">
-              <h5 className="card-title">Lorem ipsum</h5>
-              <p className="card-text">Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Sed massa orci, pharetra vitae venenatis a,
-              suscipit et sem. Cras mauris lorem, pulvinar vitae ex eu,
-              bibendum consectetur ligula.</p>
-              <a href="/" className="btn btn-primary btn-sm">Lorem Ipsum</a>
-            </div>
-          </div>
-      </div>
-  );
-  }
-}
+              <div className="line-chart-wrapper" style={{ width: '100%', height: '400px' }}>
+              <div className="App">
+                <Chart
+                  chartType="LineChart"
+                  width="100%"
+                  height="400px"
+                  data={data}
+                  options={options}
+                />
+              </div>             
+                  </div>
+                    </div>
+                  </div>
+              </div>
+          );
+          }
+        }
 
 export default Markets;
