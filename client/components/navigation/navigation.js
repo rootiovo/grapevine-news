@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './navigation.css';
 
 //Components
-import Search from '../../components/search/search'
+import Filter from '../../components/filter/filter'
 
 class Navigation extends Component {
 
@@ -13,8 +13,8 @@ class Navigation extends Component {
   render() {
     return (
         <nav className="navbar navbar-light bg-light justify-content-between top-fixed">
-          <a className="navbar-brand" href="/"><i className="fas fa-newspaper fa-lg"></i>&nbsp;News</a>
-          <Search />
+          <a className="navbar-brand" href="/"><i className="fas fa-newspaper"></i>&nbsp;News</a>
+          <Filter onFilterTextChange={this.props.onFilterTextChange}/>
         </nav>
       );
   }

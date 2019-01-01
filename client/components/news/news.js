@@ -10,8 +10,7 @@ class News extends Component {
       super(props);
 
       this.state = {     
-        articles: [],
-        filter: null
+        articles: []
     };
   }
 
@@ -36,7 +35,7 @@ class News extends Component {
   render () {
     return (
         <div>
-            {this.state.articles.map((article, index) => {
+            {this.state.articles.filter(article => article.title.toLowerCase().includes(this.props.filter.toLowerCase())).map((article, index) => {
                 return (
                     <Article key={index} article={article} />
                 );
