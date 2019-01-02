@@ -12,6 +12,10 @@ let app = express();
 app.use(cors());
 app.use(express.json());
 
+//API Keys
+//DarkSky
+let weatherAPIkey = 'a5fba080fd2d698d40c4ae5d11d15d5b';
+
 //Static Files
 app.use(express.static(__dirname + '/public'));
 
@@ -39,6 +43,16 @@ app.get('/api/news', async (req, res) => {
 
   res.send(articles.items);
 });
+
+app.get('/api/weather', async(req, res) => {
+  let weatherAPIkey = 'a5fba080fd2d698d40c4ae5d11d15d5b';
+  let lat = req.query.latitude ? req.query.latitude : '34.052235';
+  let long = req.query.longitude ? req.query.longitude : '-118.243683';
+  let response = await fetch(`https://api.darksky.net/forecast/${weatherAPIkey}/${lat},${long}`)
+  const data = await response.json()
+
+  res.send(data)
+})
 
 //Server
 app.listen(port, () => {
