@@ -29,7 +29,9 @@ app.get('/', function(req, res) {
 app.get('/api/news', async (req, res) => {
   let parser = new Parser();
   let filter = req.query.filter;
-  let articles = await parser.parseURL('https://www.theverge.com/rss/index.xml');
+  let articles = await parser.parseURL('http://feeds.reuters.com/reuters/topNews');
+
+  console.log(articles)
 
   if (filter) {
     articles = articles.filter(article => {

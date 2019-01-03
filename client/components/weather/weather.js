@@ -44,6 +44,15 @@ async getWeather(lat,long) {
 }
 
   render () { 
+    //Map font awesome icons to dark sky data
+    let iconHash = new Map([
+        ['clear-day', 'fa-sun'],
+        ['partly-cloudy-day', 'fa-cloud-sun'],
+        ['rain', 'fa-cloud-rain'],
+        ['partly-cloudy-night', 'fa-cloud-moon'],
+        ['clear-night', 'fa-moon']
+    ])
+
     return (
           <div className="weather">
             <div className="card">
@@ -55,7 +64,7 @@ async getWeather(lat,long) {
                   <div className="container-fluid">
                   <div className="row">
                     <div className="col-md-4">
-                      <i className="fas fa-5x fa-sun"></i>
+                      <i className={`fas fa-5x ${iconHash.get(this.state.weather.currently.icon)}`}></i>
                     </div>
                     <div className="col-md-4">
                       <div className="current-city-name">
@@ -81,23 +90,23 @@ async getWeather(lat,long) {
                   <div className="row">
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().format('ddd')}</div>
-                      <i className="fas fa-3x fa-sun"></i>
+                      <i className={`fas fa-3x ${iconHash.get(this.state.weather.daily.data[0].icon)}`}></i>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(1, 'days').format('ddd')}</div>
-                      <i className="fas fa-3x fa-cloud-sun"></i>
+                      <i className={`fas fa-3x ${iconHash.get(this.state.weather.daily.data[1].icon)}`}></i>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(2, 'days').format('ddd')}</div>
-                      <i className="fas fa-3x fa-cloud-sun-rain"></i>
+                      <i className={`fas fa-3x ${iconHash.get(this.state.weather.daily.data[2].icon)}`}></i>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(3, 'days').format('ddd')}</div>
-                      <i className="fas fa-3x fa-poo-storm"></i>
+                      <i className={`fas fa-3x ${iconHash.get(this.state.weather.daily.data[3].icon)}`}></i>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(4, 'days').format('ddd')}</div>
-                      <i className="fas fa-3x fa-cloud-meatball"></i>
+                      <i className={`fas fa-3x ${iconHash.get(this.state.weather.daily.data[4].icon)}`}></i>
                     </div>                    
                   </div>  
                   <div className="row">
