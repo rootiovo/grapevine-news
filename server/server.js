@@ -1,7 +1,8 @@
-import express from 'express';
-import cors from 'cors';
-import path from 'path';
-import fetch from 'node-fetch';
+import express from 'express'
+import cors from 'cors'
+import path from 'path'
+import fetch from 'node-fetch'
+import Parser from 'rss-parser'
 
 //Environment Variables
 const port = process.env.PORT || 3000;
@@ -11,10 +12,6 @@ let app = express();
 //CORS
 app.use(cors());
 app.use(express.json());
-
-//API Keys
-//DarkSky
-let weatherAPIkey = 'a5fba080fd2d698d40c4ae5d11d15d5b';
 
 //Static Files
 app.use(express.static(__dirname + '/public'));
@@ -30,7 +27,6 @@ app.get('/', function(req, res) {
 
 //News
 app.get('/api/news', async (req, res) => {
-  let Parser = require('rss-parser');
   let parser = new Parser();
   let filter = req.query.filter;
   let articles = await parser.parseURL('https://www.theverge.com/rss/index.xml');
