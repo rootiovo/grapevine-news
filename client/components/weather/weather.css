@@ -10,7 +10,22 @@
 }
 .current-temp{
     font-size: 40px;    
+    text-align: center;
+}
+.current-high-low{
+    text-align: center;
 }
 .forecast-day{
     padding-bottom: 5px;
+    text-align: center;
+}
+.red{
+    color:red;
+}
+.blue{
+    color:blue;
+}
+.weather-summary{
+    margin-bottom: 0 !important;
+    margin-top: 1.25rem;
 }
