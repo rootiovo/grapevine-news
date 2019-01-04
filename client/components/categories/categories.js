@@ -11,16 +11,25 @@ class Categories extends Component {
     return (
       <ul className="nav flex-column float-left">
         <li className="nav-item">
-          <a className="nav-link active" href="#">Tops Stories</a>
+          <a className="nav-link active" href="#">Top Stories</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Markets</a>
+          <a className="nav-link" href="#">US</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Weather</a>
+          <a className="nav-link" href="#">World</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Twitter</a>
+          <a className="nav-link" href="#">Business</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Technology</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Sports</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Entertainment</a>
         </li>
       </ul>
       );
