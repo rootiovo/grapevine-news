@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './sidebar.css';
+import './categories.css';
 
-class Sidebar extends Component {
+class Categories extends Component {
 
   constructor(props) {
     super(props);
@@ -27,4 +27,4 @@ class Sidebar extends Component {
   }
 }
 
-export default Sidebar;
+export default Categories;

@@ -4,7 +4,6 @@ import 'babel-polyfill';
 //React
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-// import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 //CSS
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,7 +11,7 @@ import "./app.css"
 
 //Components
 import Navigation from 'components/navigation/navigation'
-import Sidebar from 'components/sidebar/sidebar'
+import Categories from 'components/categories/categories'
 import Weather from 'components/weather/weather'
 import Markets from 'components/markets/markets'
 import News from 'components/news/news'
@@ -30,13 +29,11 @@ class App extends Component {
 
     return (
           <div className="app-container">
-            <Navigation onFilterTextChange={text => {
-                this.setState({filterString: text})
-                }}/>                                 
+            <Navigation onFilterTextChange={text => {this.setState({filterString: text})}}/>                                 
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-2">
-                        <Sidebar />
+                        <Categories />
                     </div>
                     <div className="col-md-6">
                         <News filter={this.state.filterString} />

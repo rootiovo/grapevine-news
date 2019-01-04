@@ -72,6 +72,14 @@ async getWeather(lat,long) {
                       </div>
                       <div>{this.state.weather.currently.summary}</div>
                       <div>{'Humidity: ' +  this.state.weather.currently.humidity + '%'}</div>
+                      <div>
+                      <a href="https://darksky.net/poweredby/">
+                        <img 
+                        width="100%" 
+                        height="100%" 
+                        src="https://darksky.net/dev/img/attribution/poweredby.png" />
+                      </a>
+                      </div>
                     </div>
                     <div className="col-md-4">
                       <div className="current-temp">
@@ -110,10 +118,10 @@ async getWeather(lat,long) {
                     </div>                    
                   </div>  
                   <div className="row">
-                  <div className="alert alert-info weather-summary" role="alert">
-                    <i className="fas fa-info-circle"></i>&nbsp;
-                    {this.state.weather.daily.summary}
-                  </div>
+                    <div className="alert alert-info weather-summary" role="alert">
+                      <i className="fas fa-info-circle"></i>&nbsp;
+                      {this.state.weather.daily.summary}
+                    </div>
                   </div> 
                 </div>
               }                                      

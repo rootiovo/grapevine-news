@@ -27,11 +27,16 @@ app.get('/', function(req, res) {
 
 //News
 app.get('/api/news', async (req, res) => {
-  let parser = new Parser();
-  let filter = req.query.filter;
-  let articles = await parser.parseURL('http://feeds.reuters.com/reuters/topNews');
+  let parser = new Parser({
+    customFields:{
+      item:  [
+        ['media:content', 'image']
+      ]
+    }
+  });
 
-  console.log(articles)
+  let filter = req.query.filter;
+  let articles = await parser.parseURL('http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml');
 
   if (filter) {
     articles = articles.filter(article => {
