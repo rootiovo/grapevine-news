@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const path = require('path');
-const postcssNested = require('postcss-nested');
-const publicPath = path.join(__dirname, './server/public');
+const path = require('path')
+const postcssNested = require('postcss-nested')
+const publicPath = path.join(__dirname, './server/public')
 
 module.exports = {
     name: 'client',
@@ -65,4 +65,4 @@ module.exports = {
         extensions: ['.js', '.jsx'],
         modules: ['client', 'node_modules']
     }
-};
+}

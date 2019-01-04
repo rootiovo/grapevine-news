@@ -5,7 +5,7 @@ import './article.css'
 class Article extends Component {
     
     constructor(props) {
-        super(props)
+        super(props)    
     }
 
     render () {
@@ -13,13 +13,31 @@ class Article extends Component {
         let article = this.props.article
 
         return (
-        <div className="card">            
-            <div className="card-body">
-            <h5 className="card-title">{article.title}</h5>
-            <p>{moment(article.pubDate).format('MMMM Do YYYY')}</p>
-            <p className="card-text">{article.contentSnippet}</p>
-            <a href={article.link} className="btn btn-primary">Full Article</a>
-            </div>
+        <div className="card">
+            <div className="card-body">  
+            {
+                article.image ? 
+                <div className="row">
+                    <div className="col-md-8">                          
+                        <h5 className="card-title"><a href={article.link}>{article.title}</a></h5>
+                        <p className="publish-date">{moment(article.pubDate).format('MMMM Do YYYY')}</p>                
+                        <p className="card-text">{article.contentSnippet}</p>                        
+                    </div>
+                    <div class="col-md-4">                      
+                        <img 
+                        src={article.image.$.url} 
+                        width={article.image.$.width} 
+                        height={article.image.$.height} />                              
+                    </div>
+                </div>
+                :
+                <div>
+                    <h5 className="card-title"><a href={article.link}>{article.title}</a></h5>
+                    <p className="publish-date">{moment(article.pubDate).format('MMMM Do YYYY')}</p>                
+                    <p className="card-text">{article.contentSnippet}</p>   
+                </div>                             
+            }
+            </div>                   
         </div>
         );
     }
