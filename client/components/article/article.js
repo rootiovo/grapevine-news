@@ -17,23 +17,23 @@ class Article extends Component {
             <div className="card-body">  
             {
                 article.image ? 
-                <div className="row">
-                    <div className="col-md-8">                          
+                <div className="row">                   
+                    <div className="col-md-9">                          
                         <h5 className="card-title"><a href={article.link}>{article.title}</a></h5>
-                        <p className="publish-date">{moment(article.pubDate).format('MMMM Do YYYY')}</p>                
+                        <p className="publish-date">{moment(article.pubDate).fromNow()}</p>                
                         <p className="card-text">{article.contentSnippet}</p>                        
                     </div>
-                    <div class="col-md-4">                      
+                    <div class="col-md-3">                      
                         <img 
                         src={article.image.$.url} 
                         width={article.image.$.width} 
                         height={article.image.$.height} />                              
-                    </div>
+                    </div>                    
                 </div>
                 :
                 <div>
                     <h5 className="card-title"><a href={article.link}>{article.title}</a></h5>
-                    <p className="publish-date">{moment(article.pubDate).format('MMMM Do YYYY')}</p>                
+                    <p className="publish-date">{moment(article.pubDate).fromNow()}</p>                
                     <p className="card-text">{article.contentSnippet}</p>   
                 </div>                             
             }

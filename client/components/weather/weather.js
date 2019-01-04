@@ -22,14 +22,6 @@ componentWillMount() {
   });
 }
 
-componentDidMount(){
-  console.log(this.state)
-}
-
-componentDidUpdate(){
-  console.log(this.state)
-}
-
 async getWeather(lat,long) {
   try {
       let weatherData = await WeatherService.getWeather(lat,long)
@@ -75,8 +67,8 @@ async getWeather(lat,long) {
                       <div>
                       <a href="https://darksky.net/poweredby/">
                         <img 
-                        width="100%" 
-                        height="100%" 
+                        width="60%" 
+                        height="60%" 
                         src="https://darksky.net/dev/img/attribution/poweredby.png" />
                       </a>
                       </div>

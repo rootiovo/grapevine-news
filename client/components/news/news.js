@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import './news.css';
-
-import NewsService from 'services/news.service';
-import Article from '../../components/article/article';
+import React, { Component } from 'react'
+import NewsService from 'services/news.service'
+import Article from '../../components/article/article'
+import moment from 'moment'
+import './news.css'
 
 class News extends Component {
 
     constructor(props) {
-      super(props);
+      super(props)
 
       this.state = {     
         articles: []
-    };
+    }
   }
 
   componentWillMount() {
@@ -21,14 +21,16 @@ class News extends Component {
   async getNews(filter) {
     
     try {
-        let articles = await NewsService.getNews(filter);
+        let articles = await NewsService.getNews(filter)
+
+        articles.sort((a,b) => moment(b.pubDate) - moment(a.pubDate))
 
         this.setState({
             articles: articles,            
-        });
+        })
     }
     catch (err) {
-        console.log(err);
+        console.log(err)
     }
   }
 
@@ -38,11 +40,11 @@ class News extends Component {
             {this.state.articles.filter(article => article.title.toLowerCase().includes(this.props.filter.toLowerCase())).map((article, index) => {
                 return (
                     <Article key={index} article={article} />
-                );
+                )
             })}
         </div>
-  );
+  )
   }
 }
 
-export default News;
+export default News
