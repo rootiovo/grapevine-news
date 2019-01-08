@@ -9,6 +9,9 @@ const port = process.env.PORT || 3000;
 
 let app = express();
 
+//API Keys
+//const alphaVantageKey = 'NUXDDLQF5FFITSC3'
+
 //CORS
 app.use(cors());
 app.use(express.json());
@@ -48,7 +51,7 @@ app.get('/api/news', async (req, res) => {
 });
 
 app.get('/api/weather', async(req, res) => {
-  let weatherAPIkey = 'a5fba080fd2d698d40c4ae5d11d15d5b';
+  const weatherAPIkey = 'a5fba080fd2d698d40c4ae5d11d15d5b';
   let lat = req.query.latitude ? req.query.latitude : '34.052235';
   let long = req.query.longitude ? req.query.longitude : '-118.243683';
   let response = await fetch(`https://api.darksky.net/forecast/${weatherAPIkey}/${lat},${long}`)
