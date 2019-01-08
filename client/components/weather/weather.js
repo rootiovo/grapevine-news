@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import WeatherService from '../../services/weather.service'
 import './weather.css'
 import moment from 'moment'
@@ -123,5 +124,9 @@ async getWeather(lat,long) {
     )
   }
 }
+
+Weather.propTypes = {
+  weather: PropTypes.object
+};
 
 export default Weather

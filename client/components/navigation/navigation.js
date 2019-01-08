@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './navigation.css';
+import React, { Component } from 'react'
+import './navigation.css'
 
 //Components
 import Filter from '../../components/filter/filter'
@@ -7,7 +7,7 @@ import Filter from '../../components/filter/filter'
 class Navigation extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 }
 
   render() {
@@ -16,7 +16,7 @@ class Navigation extends Component {
           <a className="navbar-brand" href="/"><i className="fas fa-newspaper"></i>&nbsp;News</a>
           <Filter onFilterTextChange={this.props.onFilterTextChange}/>
         </nav>
-      );
+      )
   }
 }
 

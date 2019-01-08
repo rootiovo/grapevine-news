@@ -39,7 +39,7 @@ class Article extends Component {
             }
             </div>                   
         </div>
-        );
+        )
     }
 }
 

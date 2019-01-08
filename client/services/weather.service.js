@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from 'axios'
 
 class Weather {
     static async getWeather() {
-        let request = await axios.get('/api/weather');
+        let request = await axios.get('/api/weather')
 
-        return request.data;
+        return request.data
     }
 }
 
-export default Weather;
+export default Weather

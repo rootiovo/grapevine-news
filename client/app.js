@@ -2,11 +2,12 @@
 import 'babel-polyfill';
 
 //React
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 
 //CSS
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css"
 import "./app.css"
 
 //Components
@@ -45,10 +46,14 @@ class App extends Component {
                 </div>      
             </div>                
           </div>     
-    );
+    )
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+App.propTypes = {
+    filterString: PropTypes.string
+  }
 
-export default App;
+ReactDOM.render(<App />, document.getElementById('root'))
+
+export default App

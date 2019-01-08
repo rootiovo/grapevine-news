@@ -44,7 +44,7 @@ class Markets extends Component {
                     </div>
                   </div>
               </div>
-          );
+          )
           }
         }
 
