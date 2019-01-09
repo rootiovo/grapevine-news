@@ -12,12 +12,12 @@ class Navigation extends Component {
 
   render() {
     return (
-        <nav className="navbar navbar-light bg-light justify-content-between top-fixed">
+        <nav className="navbar navbar-light bg-light justify-content-between top-fixed toolbar">
           <a className="navbar-brand" href="/"><i className="fas fa-newspaper"></i>&nbsp;News</a>
           <Filter onFilterTextChange={this.props.onFilterTextChange}/>
-        </nav>
+        </nav>      
       )
   }
 }
 
-export default Navigation;
+export default Navigation

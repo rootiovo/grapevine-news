@@ -21,7 +21,11 @@ class Article extends Component {
                     <div className="col-md-9">                          
                         <h5 className="card-title"><a href={article.link}>{article.title}</a></h5>
                         <p className="publish-date">{moment(article.pubDate).fromNow()}</p>                
-                        <p className="card-text">{article.contentSnippet}</p>                        
+                        <p className="card-text">{article.contentSnippet}</p>
+                        <div class="article-actions">
+                            <i class="fas fa-share-alt"></i>
+                            <i class="far fa-bookmark"></i>
+                        </div>                       
                     </div>
                     <div class="col-md-3">                      
                         <img 
@@ -34,7 +38,11 @@ class Article extends Component {
                 <div>
                     <h5 className="card-title"><a href={article.link}>{article.title}</a></h5>
                     <p className="publish-date">{moment(article.pubDate).fromNow()}</p>                
-                    <p className="card-text">{article.contentSnippet}</p>   
+                    <p className="card-text">{article.contentSnippet}</p>
+                    <div class="article-actions">
+                        <i class="fas fa-share-alt"></i>
+                        <i class="far fa-bookmark"></i>
+                    </div>   
                 </div>                             
             }
             </div>                   

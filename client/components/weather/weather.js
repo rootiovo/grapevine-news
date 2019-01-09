@@ -80,10 +80,10 @@ async getWeather(lat,long) {
                       </div>
                       <div className="current-high-low">
                         {Math.round(this.state.weather.daily.data[0].temperatureMax)}°&nbsp;
-                        <i className="fas fa-arrow-up red"></i>
+                        <i className="fas fa-arrow-up temp-high"></i>
                         <br />
                         {Math.round(this.state.weather.daily.data[0].temperatureMin)}°&nbsp;
-                        <i className="fas fa-arrow-down blue"></i>
+                        <i className="fas fa-arrow-down blue temp-low"></i>
                       </div>
                     </div>
                   </div>
