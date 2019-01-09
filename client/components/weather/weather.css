@@ -19,11 +19,11 @@
     padding-bottom: 5px;
     text-align: center;
 }
-.red{
-    color:red;
+.temp-high{
+    color:#ff00008f;
 }
-.blue{
-    color:blue;
+.temp-low{
+    color:#0000ff7d;
 }
 .weather-summary{
     margin-bottom: 0 !important;

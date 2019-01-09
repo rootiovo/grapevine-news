@@ -1,7 +1,13 @@
+img{
+    border-radius: 10px;
+}
 .publish-date{
     font-size: 15px;
     color: #adb5bd;
 }
-img{
-    border-radius: 10px;
+.article-actions{
+    color: #999;
+}
+.article-actions i{
+    margin-right:10px;
 }
