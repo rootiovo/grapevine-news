@@ -21,26 +21,19 @@ app.get('/', function(req, res) {
   })
 })
 
-//News
 app.get('/api/news', async (req, res) => {
-  let parser = new Parser({
-    customFields:{
-      item:  [
-        ['media:content', 'image']
-      ]
-    }
-  })
-
+  const newsAPIkey= 'b3d4b1b9e75145cbaa401b5a33452c56'
   let filter = req.query.filter;
-  let articles = await parser.parseURL('http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml')
+  let data = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsAPIkey}`)
+  let news = await data.json()
 
   if (filter) {
-    articles = articles.filter(article => {
-      return article.title.toLowerCase().indexOf(filter.toLowerCase()) > -1
-      })
-  }
+       news = news.articles.filter(article => {
+          return article.title.toLowerCase().indexOf(filter.toLowerCase()) > -1
+          })
+      }
 
-  res.send(articles.items)
+  res.send(news.articles)
 })
 
 app.get('/api/weather', async(req, res) => {
