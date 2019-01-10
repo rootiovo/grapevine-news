@@ -1,23 +1,16 @@
-import express from 'express'
-import cors from 'cors'
-import path from 'path'
-import fetch from 'node-fetch'
-import Parser from 'rss-parser'
-
-//Environment Variables
-const port = process.env.PORT || 3000
+const express = require("express");
+const path = require("path");
+const fetch = require("node-fetch");
+const Parser = require("rss-parser");
 
 let app = express()
 
-//API Keys
-//const alphaVantageKey = 'NUXDDLQF5FFITSC3'
+app.set("port", process.env.PORT || 3001);
 
-//CORS
-app.use(cors());
-app.use(express.json())
-
-//Static Files
-app.use(express.static(__dirname + '/public'))
+//Serve static files in production
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
 
 // Index Route
 app.get('/', function(req, res) {
@@ -61,6 +54,6 @@ app.get('/api/weather', async(req, res) => {
 })
 
 //Server
-app.listen(port, () => {
-    console.log('Listening on port ' + port)
-})
+app.listen(app.get("port"), () => {
+    console.log(`Server running at: http://localhost:${app.get("port")}/`);
+  });

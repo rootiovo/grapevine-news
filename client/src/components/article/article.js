@@ -3,16 +3,11 @@ import moment from 'moment'
 import './article.css'
 
 class Article extends Component {
-    
-    constructor(props) {
-        super(props)    
-    }
-
     render () {
 
         let article = this.props.article
 
-        return (
+        return (            
         <div className="card">
             <div className="card-body">  
             {
@@ -22,16 +17,17 @@ class Article extends Component {
                         <h5 className="card-title"><a href={article.link}>{article.title}</a></h5>
                         <p className="publish-date">{moment(article.pubDate).fromNow()}</p>                
                         <p className="card-text">{article.contentSnippet}</p>
-                        <div class="article-actions">
-                            <i class="fas fa-share-alt"></i>
-                            <i class="far fa-bookmark"></i>
+                        <div className="article-actions">
+                            <i className="fas fa-share-alt"></i>
+                            <i className="far fa-bookmark"></i>
                         </div>                       
                     </div>
-                    <div class="col-md-3">                      
+                    <div className="col-md-3">                      
                         <img 
                         src={article.image.$.url} 
                         width={article.image.$.width} 
-                        height={article.image.$.height} />                              
+                        height={article.image.$.height} 
+                        alt={article.image.$.alt}/>                              
                     </div>                    
                 </div>
                 :
@@ -39,9 +35,9 @@ class Article extends Component {
                     <h5 className="card-title"><a href={article.link}>{article.title}</a></h5>
                     <p className="publish-date">{moment(article.pubDate).fromNow()}</p>                
                     <p className="card-text">{article.contentSnippet}</p>
-                    <div class="article-actions">
-                        <i class="fas fa-share-alt"></i>
-                        <i class="far fa-bookmark"></i>
+                    <div className="article-actions">
+                        <i className="fas fa-share-alt"></i>
+                        <i className="far fa-bookmark"></i>
                     </div>   
                 </div>                             
             }

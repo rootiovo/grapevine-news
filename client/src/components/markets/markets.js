@@ -3,11 +3,6 @@ import Chart from "react-google-charts";
 import './markets.css';
 
 class Markets extends Component {
-
-  constructor(props) {
-    super(props);
-}
-
   render () {
 
     const data = [
