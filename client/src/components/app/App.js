@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import "bootstrap/dist/css/bootstrap.min.css"
-import './App.css';
-
-//Components
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Navigation from '../../components/navigation/navigation'
 import Categories from '../../components/categories/categories'
 import Weather from '../../components/weather/weather'
-// import Markets from '../../components/markets/markets'
 import News from '../../components/news/news'
+import "bootstrap/dist/css/bootstrap.min.css"
+import './App.css'
+
+
 
 class App extends Component {
 
