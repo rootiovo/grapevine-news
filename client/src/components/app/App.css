@@ -1,0 +1,24 @@
+body{
+  font-family: 'Roboto', sans-serif;
+  background: #fafafb;
+}
+a, a:hover {
+  color: #5590ad;
+  text-decoration: none;
+}
+.navbar {
+  height: 64px;
+  width: 100%;    
+  background-color: #e9ecef !important;
+  border-bottom: 1px solid #e2e2e2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+  background-color: #f3f3f5 !important;
+}
+.card {
+  margin-bottom:15px !important;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}
+
+
+

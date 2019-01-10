@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 import WeatherService from '../../services/weather.service'
 import './weather.css'
-import moment from 'moment'
 
 class Weather extends Component {
 
@@ -43,8 +43,12 @@ async getWeather(lat,long) {
         ['partly-cloudy-day', 'fa-cloud-sun'],
         ['rain', 'fa-cloud-rain'],
         ['partly-cloudy-night', 'fa-cloud-moon'],
-        ['clear-night', 'fa-moon']
+        ['clear-night', 'fa-moon'],
+        ['fog', 'fa-smog'],
+        ['cloudy', 'fa-cloud']
     ])
+
+    console.log(this.state.weather)
 
     return (
           <div className="weather">
@@ -66,12 +70,12 @@ async getWeather(lat,long) {
                       <div>{this.state.weather.currently.summary}</div>
                       <div>{'Humidity: ' +  this.state.weather.currently.humidity + '%'}</div>
                       <div>
-                      <a href="https://darksky.net/poweredby/">
+                      {/* <a href="https://darksky.net/poweredby/">
                         <img 
                         width="60%" 
                         height="60%" 
                         src="https://darksky.net/dev/img/attribution/poweredby.png" />
-                      </a>
+                      </a> */}
                       </div>
                     </div>
                     <div className="col-md-4">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import NewsService from 'services/news.service'
+import NewsService from '../../services/news.service'
 import Article from '../../components/article/article'
 import moment from 'moment'
 import './news.css'
