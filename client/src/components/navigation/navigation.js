@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 // import SearchIcon from '@material-ui/icons/Search';
 import './navigation.css';
-
+import homeIcon from './newspaper.svg'
 //Components
 // import Filter from '../../components/filter/filter'
 
@@ -41,7 +41,7 @@ class Navigation extends Component {
                 <MenuIcon />
               </IconButton>
               <Typography variant="h6" color="inherit" className="grow">
-                News
+              <img src={homeIcon} height="50" width="50" alt="news"/>
               </Typography>
               {/* <InputBase placeholder="Search…" /> */}
               <div className="grow" />

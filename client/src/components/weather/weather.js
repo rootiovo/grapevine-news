@@ -3,6 +3,12 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 import WeatherService from '../../services/weather.service'
 import './weather.css'
+import cloudy from './svg/cloud.svg'
+import cloudyNight from './svg/cloudy-night-.svg'
+import rain from './svg/rain.svg'
+import sun from './svg/sun.svg'
+import moon from './svg/crescent-moon.svg'
+
 
 class Weather extends Component {
 
@@ -39,13 +45,12 @@ async getWeather(lat,long) {
   render () { 
     //Map font awesome icons to dark sky data
     let iconHash = new Map([
-        ['clear-day', 'fa-sun'],
-        ['partly-cloudy-day', 'fa-cloud-sun'],
-        ['rain', 'fa-cloud-rain'],
-        ['partly-cloudy-night', 'fa-cloud-moon'],
-        ['clear-night', 'fa-moon'],
-        ['fog', 'fa-smog'],
-        ['cloudy', 'fa-cloud']
+        ['clear-day', sun],
+        ['partly-cloudy-day', cloudy],
+        ['rain', rain],
+        ['partly-cloudy-night', cloudyNight],
+        ['clear-night', moon],
+        ['cloudy', cloudy]
     ])
 
     console.log(this.state.weather)
@@ -61,7 +66,7 @@ async getWeather(lat,long) {
                   <div className="container-fluid">
                   <div className="row">
                     <div className="col-md-4">
-                      <i className={`fas fa-5x ${iconHash.get(this.state.weather.currently.icon)}`}></i>
+                      <img src={iconHash.get(this.state.weather.currently.icon)} height="100" width="100" alt="/"/>
                     </div>
                     <div className="col-md-4">
                       <div className="current-city-name">
@@ -95,23 +100,23 @@ async getWeather(lat,long) {
                   <div className="row">
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().format('ddd')}</div>
-                      <i className={`fas fa-3x ${iconHash.get(this.state.weather.daily.data[0].icon)}`}></i>
+                      <img src={iconHash.get(this.state.weather.daily.data[0].icon)} height="50" width="50"/>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(1, 'days').format('ddd')}</div>
-                      <i className={`fas fa-3x ${iconHash.get(this.state.weather.daily.data[1].icon)}`}></i>
+                      <img src={iconHash.get(this.state.weather.daily.data[1].icon)} height="50" width="50"/>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(2, 'days').format('ddd')}</div>
-                      <i className={`fas fa-3x ${iconHash.get(this.state.weather.daily.data[2].icon)}`}></i>
+                      <img src={iconHash.get(this.state.weather.daily.data[2].icon)} height="50" width="50"/>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(3, 'days').format('ddd')}</div>
-                      <i className={`fas fa-3x ${iconHash.get(this.state.weather.daily.data[3].icon)}`}></i>
+                      <img src={iconHash.get(this.state.weather.daily.data[3].icon)} height="50" width="50"/>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(4, 'days').format('ddd')}</div>
-                      <i className={`fas fa-3x ${iconHash.get(this.state.weather.daily.data[4].icon)}`}></i>
+                      <img src={iconHash.get(this.state.weather.daily.data[4].icon)} height="50" width="50"/>
                     </div>                    
                   </div>  
                   <div className="row">
