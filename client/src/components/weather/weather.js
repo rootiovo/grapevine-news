@@ -100,23 +100,23 @@ async getWeather(lat,long) {
                   <div className="row">
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().format('ddd')}</div>
-                      <img src={iconHash.get(this.state.weather.daily.data[0].icon)} height="50" width="50"/>
+                      <img src={iconHash.get(this.state.weather.daily.data[0].icon)} height="50" width="50" alt="/"/>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(1, 'days').format('ddd')}</div>
-                      <img src={iconHash.get(this.state.weather.daily.data[1].icon)} height="50" width="50"/>
+                      <img src={iconHash.get(this.state.weather.daily.data[1].icon)} height="50" width="50" alt="/"/>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(2, 'days').format('ddd')}</div>
-                      <img src={iconHash.get(this.state.weather.daily.data[2].icon)} height="50" width="50"/>
+                      <img src={iconHash.get(this.state.weather.daily.data[2].icon)} height="50" width="50" alt="/"/>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(3, 'days').format('ddd')}</div>
-                      <img src={iconHash.get(this.state.weather.daily.data[3].icon)} height="50" width="50"/>
+                      <img src={iconHash.get(this.state.weather.daily.data[3].icon)} height="50" width="50" alt="/"/>
                     </div>
                     <div className="col-xs-2 col-half-offset">
                       <div className="forecast-day">{moment().add(4, 'days').format('ddd')}</div>
-                      <img src={iconHash.get(this.state.weather.daily.data[4].icon)} height="50" width="50"/>
+                      <img src={iconHash.get(this.state.weather.daily.data[4].icon)} height="50" width="50" alt="/"/>
                     </div>                    
                   </div>  
                   <div className="row">
