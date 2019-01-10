@@ -34,8 +34,7 @@ class Article extends Component {
                                 </div>  
                             </div>
                     </div>      
-                </div>
-                
+                </div>                
                 :
                 <div>
                     <h5 className="card-title"><a href={article.url}>{article.title.substring(0,article.title.lastIndexOf('- ')).trim()}</a></h5>
