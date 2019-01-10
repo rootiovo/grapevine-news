@@ -42,6 +42,7 @@ class Navigation extends Component {
               </IconButton>
               <Typography variant="h6" color="inherit" className="grow">
               <img src={homeIcon} height="50" width="50" alt="news"/>
+              <span className="logo-title">grapevine</span>
               </Typography>
               {/* <InputBase placeholder="Search…" /> */}
               <div className="grow" />

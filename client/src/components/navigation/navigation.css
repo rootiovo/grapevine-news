@@ -1,6 +1,10 @@
 header{
   background-color:#2196f3 !important;
 }
+.logo-title{
+  font-family: 'Pacifico', cursive !important;
+  font-size:25px;
+}
 .root{
     flex-grow: 1;
     margin-bottom:20px !important;

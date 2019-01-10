@@ -11,30 +11,36 @@ class Article extends Component {
         <div className="card">
             <div className="card-body">  
             {
-                article.image ? 
-                <div className="row">                   
-                    <div className="col-md-9">                          
-                        <h5 className="card-title"><a href={article.link}>{article.title}</a></h5>
-                        <p className="publish-date">{moment(article.pubDate).fromNow()}</p>                
-                        <p className="card-text">{article.contentSnippet}</p>
-                        <div className="article-actions">
-                            <i className="fas fa-share-alt"></i>
-                            <i className="far fa-bookmark"></i>
-                        </div>                       
+                article.urlToImage ?
+                <div> 
+                    <div className="row">                   
+                        <div className="col-md-9">                          
+                            <h5 className="card-title"><a href={article.url}>{article.title.substring(0,article.title.lastIndexOf('- ')).trim()}</a></h5>
+                            <p className="publish-date">{moment(article.publishedAt).fromNow()}</p>                
+                            <p className="card-text">{article.description}</p>                                              
+                        </div>
+                        <div className="col-md-3">                      
+                            <img 
+                            className="article-image"
+                            src={article.urlToImage} 
+                            alt="/"/>                                                 
+                        </div>                                                  
                     </div>
-                    <div className="col-md-3">                      
-                        <img 
-                        src={article.image.$.url} 
-                        width={article.image.$.width} 
-                        height={article.image.$.height} 
-                        alt={article.image.$.alt}/>                              
-                    </div>                    
+                    <div className="row">
+                            <div className="col-md-9">
+                                <div className="article-actions">
+                                    <i className="fas fa-share-alt"></i>
+                                    <i className="far fa-bookmark"></i>
+                                </div>  
+                            </div>
+                    </div>      
                 </div>
+                
                 :
                 <div>
-                    <h5 className="card-title"><a href={article.link}>{article.title}</a></h5>
-                    <p className="publish-date">{moment(article.pubDate).fromNow()}</p>                
-                    <p className="card-text">{article.contentSnippet}</p>
+                    <h5 className="card-title"><a href={article.url}>{article.title.substring(0,article.title.lastIndexOf('- ')).trim()}</a></h5>
+                    <p className="publish-date">{moment(article.publishedAt).fromNow()}</p>                
+                    <p className="card-text">{article.description}</p>
                     <div className="article-actions">
                         <i className="fas fa-share-alt"></i>
                         <i className="far fa-bookmark"></i>

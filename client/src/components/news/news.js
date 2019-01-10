@@ -24,6 +24,8 @@ class News extends Component {
     try {
         let articles = await NewsService.getNews(filter)
 
+        console.log(articles)
+
         articles.sort((a,b) => moment(b.pubDate) - moment(a.pubDate))
 
         this.setState({
