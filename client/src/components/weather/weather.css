@@ -29,7 +29,9 @@
     margin-bottom: 0 !important;
     margin-top: 1.25rem;
 }
-img{
-    margin-left:5px;
-    margin-right:5px;
+.forecast{
+    margin-left:20px;
+}
+.weather{
+    margin-right:9px;
 }
