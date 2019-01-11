@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 import WeatherService from '../../services/weather.service'
 import './weather.css'
-import cloudy from './svg/cloudy.svg'
-import cloudyNight from './svg/cloudy-night-.svg'
-import rain from './svg/rain.svg'
-import sun from './svg/sun.svg'
-import moon from './svg/crescent-moon.svg'
+import cloudy from '../../svg/weather/cloudy.svg'
+import cloudyNight from '../../svg/weather/cloudy-night-.svg'
+import rain from '../../svg/weather/rain.svg'
+import sun from '../../svg/weather/sun.svg'
+import moon from '../../svg/weather/crescent-moon.svg'
 
 
 class Weather extends Component {
@@ -43,7 +43,7 @@ async getWeather(lat,long) {
 }
 
   render () { 
-    //Map font awesome icons to dark sky data
+    //Map icons to data
     let iconHash = new Map([
         ['clear-day', sun],
         ['partly-cloudy-day', cloudy],
@@ -53,14 +53,9 @@ async getWeather(lat,long) {
         ['cloudy', cloudy]
     ])
 
-    console.log(this.state.weather)
-
     return (
           <div className="weather">
-            <div className="card">
-              <div className="card-header">
-                <i className="fas fa-cloud-sun"></i>&nbsp;<span>Local Weather</span>
-              </div>
+            <div className="card">             
               <div className="card-body">
               {this.state.weather &&
                   <div className="container-fluid">
@@ -74,13 +69,7 @@ async getWeather(lat,long) {
                       </div>
                       <div>{this.state.weather.currently.summary}</div>
                       <div>{'Humidity: ' +  this.state.weather.currently.humidity + '%'}</div>
-                      <div>
-                      {/* <a href="https://darksky.net/poweredby/">
-                        <img 
-                        width="60%" 
-                        height="60%" 
-                        src="https://darksky.net/dev/img/attribution/poweredby.png" />
-                      </a> */}
+                      <div>                     
                       </div>
                     </div>
                     <div className="col-md-4">
@@ -138,4 +127,4 @@ Weather.propTypes = {
   weather: PropTypes.object
 };
 
-export default Weather
+export default Weather;
