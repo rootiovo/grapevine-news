@@ -1,18 +1,17 @@
 .article-image{
     border-radius: 10px;
-    /* width: 100%;
-    height: auto; */
     width: 100%;
-    height: 85%;
+    height: 100%;
     object-fit: cover;
     box-sizing: inherit;
 }
 .publish-date{
-    font-size: 15px;
+    font-size: 13px;
     color: #adb5bd;
 }
 .article-actions{
     color: #999;
+    margin-top:10px;
 }
 .article-actions i{
     margin-right:10px;

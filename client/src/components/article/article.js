@@ -16,7 +16,7 @@ class Article extends Component {
                     <div className="row">                   
                         <div className="col-md-9">                          
                             <h5 className="card-title"><a href={article.url}>{article.title.substring(0,article.title.lastIndexOf('- ')).trim()}</a></h5>
-                            <p className="publish-date">{`${article.source.name} - ${moment(article.publishedAt).fromNow()}`}</p>                
+                            <p className="publish-date">{`${article.source.name} - ${moment(article.publishedAt).fromNow()}`}</p>            
                             <p className="card-text">{article.description}</p>                                              
                         </div>
                         <div className="col-md-3">                      
@@ -29,8 +29,8 @@ class Article extends Component {
                     <div className="row">
                             <div className="col-md-9">
                                 <div className="article-actions">
-                                    <i className="fas fa-share-alt"></i>
-                                    <i className="far fa-bookmark"></i>
+                                    <a href="/"><i className="fas fa-share-alt"></i></a>
+                                    <a href="/"><i className="far fa-bookmark"></i></a>
                                 </div>  
                             </div>
                     </div>      

@@ -2,8 +2,12 @@ body{
   font-family: 'Roboto', sans-serif;
   background: #fafafb;
 }
-a, a:hover {
+a {
   color: #5590ad;
+  text-decoration: none;
+}
+a:hover {
+  color: #1b6c95;
   text-decoration: none;
 }
 .navbar {
