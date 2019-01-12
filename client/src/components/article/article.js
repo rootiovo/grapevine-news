@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+    import React, { Component } from 'react'
 import moment from 'moment'
 import './article.css'
 
@@ -19,7 +19,7 @@ class Article extends Component {
                             <p className="publish-date">{`${article.source.name} - ${moment(article.publishedAt).fromNow()}`}</p>            
                             <p className="card-text">{article.description}</p>                                              
                         </div>
-                        <div className="col-md-3">                      
+                        <div className="figure">                      
                             <img 
                             className="article-image"
                             src={article.urlToImage} 
