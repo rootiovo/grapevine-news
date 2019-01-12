@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Navigation from '../../components/navigation/navigation'
-import Categories from '../../components/categories/categories'
-import Weather from '../../components/weather/weather'
-import News from '../../components/news/news'
-import "bootstrap/dist/css/bootstrap.min.css"
-import './App.css'
-
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Navigation from '../../components/navigation/navigation';
+import Categories from '../../components/categories/categories';
+import Weather from '../../components/weather/weather';
+import News from '../../components/news/news';
+import "bootstrap/dist/css/bootstrap.min.css";
+import './App.css';
 
 class App extends Component {
 
@@ -15,8 +13,8 @@ class App extends Component {
         super();
         this.state = {
             filterString: ''
-        }
-    }
+        };
+    };
 
   render() {
 
@@ -33,18 +31,17 @@ class App extends Component {
                     </div>                                
                     <div className="col-md-4">
                         <Weather />
-                        {/* <Markets /> */}
                     </div>                    
                 </div>      
             </div>                
           </div>     
     )
-  }
-}
+  };
+};
 
 App.propTypes = {
     filterString: PropTypes.string
-  }
+  };
 
 
 export default App;

@@ -93,6 +93,7 @@ class Navigation extends Component {
                 </div>
                 <InputBase
                   placeholder="Search…"
+                  onKeyUp={event => this.props.onFilterTextChange(event.target.value)}
                   classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,
@@ -103,7 +104,7 @@ class Navigation extends Component {
             </AppBar>
          </div>  
       )
-  }
+  };
 };
 
 Navigation.propTypes = {

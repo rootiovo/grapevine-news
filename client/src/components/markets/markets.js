@@ -40,7 +40,7 @@ class Markets extends Component {
                   </div>
               </div>
           )
-          }
-        }
+        };
+      };
 
 export default Markets;

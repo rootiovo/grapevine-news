@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import './categories.css'
+import React, { Component } from 'react';
+import './categories.css';
 
 class Categories extends Component {  
   render() {
@@ -28,7 +28,7 @@ class Categories extends Component {
         </li>
       </ul>
       )
-  }
-}
+  };
+};
 
-export default Categories
+export default Categories;

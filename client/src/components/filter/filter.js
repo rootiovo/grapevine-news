@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import './filter.css'
+import React, { Component } from 'react';
+import './filter.css';
 
 class Filter extends Component {
   render() {
@@ -10,7 +10,7 @@ class Filter extends Component {
             onKeyUp={event => this.props.onFilterTextChange(event.target.value)} />
           </form>
       )
-  }
-}
+  };
+};
 
-export default Filter
+export default Filter;

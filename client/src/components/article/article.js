@@ -1,6 +1,6 @@
-    import React, { Component } from 'react'
-import moment from 'moment'
-import './article.css'
+import React, { Component } from 'react';
+import moment from 'moment';
+import './article.css';
 
 class Article extends Component {
     render () {
@@ -49,7 +49,7 @@ class Article extends Component {
             </div>                   
         </div>
         )
-    }
-}
+    };
+};
 
-export default Article
+export default Article;
