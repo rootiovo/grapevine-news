@@ -3,7 +3,4 @@ import ReactDOM from "react-dom";
 import App from "./components/app/App";
 import "./index.css";
 
-ReactDOM.render(
-  <App />,
-  document.getElementById("root") // eslint-disable-line no-undef
-);
+ReactDOM.render(<App />, document.getElementById("root"));

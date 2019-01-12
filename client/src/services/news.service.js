@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 class NewsService {
     static async getNews(filter) {
@@ -9,6 +9,6 @@ class NewsService {
         })
         return request.data
     }
-}
+};
 
-export default NewsService
+export default NewsService;

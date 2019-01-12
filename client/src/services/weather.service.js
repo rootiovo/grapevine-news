@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 class Weather {
     static async getWeather() {
@@ -6,6 +6,6 @@ class Weather {
 
         return request.data
     }
-}
+};
 
-export default Weather
+export default Weather;

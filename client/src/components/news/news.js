@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import NewsService from '../../services/news.service'
-import Article from '../../components/article/article'
-import moment from 'moment'
-import './news.css'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import NewsService from '../../services/news.service';
+import Article from '../../components/article/article';
+import moment from 'moment';
+import './news.css';
 
 class News extends Component {
 
@@ -12,12 +12,12 @@ class News extends Component {
 
       this.state = {     
         articles: []
-    }
-  }
+    };
+  };
 
   componentWillMount() {
     this.getNews(null)
-}
+};
 
   async getNews(filter) {
     
@@ -35,7 +35,7 @@ class News extends Component {
     catch (err) {
         console.log(err)
     }
-  }
+  };
 
   render () {
     return (
@@ -48,10 +48,10 @@ class News extends Component {
         </div>
   )
   }
-}
+};
 
 News.propTypes = {
     articles: PropTypes.array
-  }
+  };
 
-export default News
+export default News;
