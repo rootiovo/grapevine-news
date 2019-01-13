@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade } from '@material-ui/core/styles/colorManipulator';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import homeIcon from '../../svg/navigation/newspaper.svg';
 import './navigation.css';
 
@@ -93,8 +94,7 @@ class Navigation extends Component {
 
   render() {
     const { classes } = this.props;
-    return (
-      <div>
+    return (      
         <AppBar position="static" className="app-bar">
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
@@ -119,9 +119,9 @@ class Navigation extends Component {
                   }}
                 />                        
             </div>
-          </Toolbar>         
+          </Toolbar>   
+          {this.props.loading && <LinearProgress />}                
         </AppBar>       
-      </div>
     )
   };
 };

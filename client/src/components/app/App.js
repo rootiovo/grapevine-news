@@ -5,7 +5,6 @@ import Categories from '../../components/categories/categories';
 import Weather from '../../components/weather/weather';
 import News from '../../components/news/news';
 import NewsService from '../../services/news.service';
-import moment from 'moment';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
@@ -16,23 +15,23 @@ class App extends Component {
         this.state = {
             filterString: '',
             queryString: '',
-            articles: []
+            articles: [],
+            isLoading: true
         };
     };
 
     componentWillMount() {
-        this.getNews(null)
+        this.getNews()
     };
 
-    async getNews(filter) {
+    async getNews() {
 
         try {
-            let articles = await NewsService.getNews(filter)
-
-            articles.sort((a, b) => moment(b.pubDate) - moment(a.pubDate))
+            let articles = await NewsService.getNews()
 
             this.setState({
                 articles: articles,
+                isLoading: false
             })
         }
         catch (err) {
@@ -42,17 +41,22 @@ class App extends Component {
 
     async searchNews(queryString) {
 
-        try {
-            let articles = await NewsService.searchNews(queryString)
-
-            articles.sort((a, b) => moment(b.pubDate) - moment(a.pubDate))
-
+        if (queryString !== '') {
             this.setState({
-                articles: articles,
-            })
-        }
-        catch (err) {
-            console.log(err)
+                isLoading: true
+            });
+
+            try {
+                let articles = await NewsService.searchNews(queryString)
+
+                this.setState({
+                    articles: articles,
+                    isLoading: false
+                });
+            }
+            catch (err) {
+                console.log(err)
+            }
         }
     };
 
@@ -60,14 +64,14 @@ class App extends Component {
 
         return (
             <div className="app-container">
-                <Navigation onFilterTextChange={(text) => {this.searchNews(text)}} />
+                <Navigation onFilterTextChange={(text) => { this.searchNews(text) }} loading={this.state.isLoading} />
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-2">
                             <Categories />
                         </div>
                         <div className="col-md-6">
-                            <News articles={this.state.articles} filter={this.state.filterString} />
+                            <News articles={this.state.articles} />
                         </div>
                         <div className="col-md-4">
                             <Weather />
