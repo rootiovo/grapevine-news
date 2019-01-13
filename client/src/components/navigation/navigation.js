@@ -76,34 +76,34 @@ class Navigation extends Component {
   render() {
     const { classes } = this.props;
     return (
-        <div>
-           <AppBar position="static">
-            <Toolbar>
-              <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
-                <MenuIcon />
-              </IconButton>
-              <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-              <img src={homeIcon} className="header-logo" height="50" width="50" alt="news"/>
-               <span className="logo-title">grapevine</span>
-              </Typography>
-              <div className={classes.grow} />
-              <div className={classes.search}>
-                <div className={classes.searchIcon}>
-                  <SearchIcon />
-                </div>
-                <InputBase
-                  placeholder="Search…"
-                  onKeyUp={event => this.props.onFilterTextChange(event.target.value)}
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                  }}
-                />
+      <div>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+              <MenuIcon />
+            </IconButton>
+            <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+              <img src={homeIcon} className="header-logo" height="50" width="50" alt="news" />
+              <span className="logo-title">grapevine</span>
+            </Typography>
+            <div className={classes.grow} />
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
               </div>
-            </Toolbar>
-            </AppBar>
-         </div>  
-      )
+              <InputBase
+                placeholder="Search…"
+                onKeyUp={event => this.props.onFilterTextChange(event.target.value)}
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+              />
+            </div>
+          </Toolbar>
+        </AppBar>
+      </div>
+    )
   };
 };
 

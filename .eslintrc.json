@@ -2,6 +2,8 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
+    "arrow-body-style": ["error", "always"],
+    "linebreak-style": ["error", "windows"],
     "array-bracket-spacing": [2, "always"],
     "jsx-quotes": [1, "prefer-single"],
     "jsx-a11y/no-static-element-interactions": 0,
