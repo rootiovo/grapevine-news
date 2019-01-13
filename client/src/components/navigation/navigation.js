@@ -66,18 +66,36 @@ const styles = theme => ({
     [theme.breakpoints.up('sm')]: {
       width: 120,
       '&:focus': {
-        width: 200,
+        width: 300,
       },
     },
-  },
+  }
 });
 
 class Navigation extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+    this.keyPress = this.keyPress.bind(this);
+ } 
+
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+ }
+
+ keyPress(e){
+    if(e.keyCode === 13){
+      this.props.onFilterTextChange(e.target.value)
+    }
+ }
+
   render() {
     const { classes } = this.props;
     return (
       <div>
-        <AppBar position="static">
+        <AppBar position="static" className="app-bar">
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
               <MenuIcon />
@@ -92,16 +110,17 @@ class Navigation extends Component {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Search…"
-                onKeyUp={event => this.props.onFilterTextChange(event.target.value)}
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-              />
+                  placeholder="Search…"
+                  onKeyDown={this.keyPress} 
+                  onChange={this.handleChange}  
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                />                        
             </div>
-          </Toolbar>
-        </AppBar>
+          </Toolbar>         
+        </AppBar>       
       </div>
     )
   };

@@ -15,8 +15,8 @@ class Article extends Component {
                             <div>
                                 <div className="row">
                                     <div className="col-md-9">
-                                        <h5 className="card-title"><a href={article.url}>{article.title.substring(0, article.title.lastIndexOf('- ')).trim()}</a></h5>
-                                        <p className="publish-date">{`${article.source.name} - ${moment(article.publishedAt).fromNow()}`}</p>
+                                        <h5 className="card-title"><a href={article.url}>{article.title}</a></h5>
+                                        <p className="publish-date">{`${article.source.name} · ${moment(article.publishedAt).fromNow()}`}</p>
                                         <p className="card-text">{article.description}</p>
                                     </div>
                                     <div className="figure">
