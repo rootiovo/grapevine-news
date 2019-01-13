@@ -38,8 +38,8 @@ app.get('/api/news', async (req, res) => {
 
 app.get('/api/news/:search', async (req, res) => {
   const newsAPIkey = 'b3d4b1b9e75145cbaa401b5a33452c56';
-  const searchQuery = req.query.search;
-  const requestURL = `https://newsapi.org/v2/everything?q=${searchQuery}&apiKey=${newsAPIkey}`;
+  const queryString = req.query.queryString;
+  const requestURL = `https://newsapi.org/v2/everything?q=${queryString}&apiKey=${newsAPIkey}`;
   const data = await fetch(requestURL);
   const news = await data.json();
 
