@@ -8,7 +8,16 @@ class NewsService {
             }
         })
         return request.data
-    }
+    };
+
+    static async searchNews(queryString) {
+        let request = await axios.get('/api/news/:search', {
+            params: {
+                query: queryString
+            }
+        })
+        return request.data
+    };
 };
 
 export default NewsService;

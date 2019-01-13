@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './categories.css';
 
-class Categories extends Component {  
+class Categories extends Component {
   render() {
     return (
       <ul className="nav flex-column float-left">
@@ -27,7 +27,7 @@ class Categories extends Component {
           <a className="nav-link" href="/">Entertainment</a>
         </li>
       </ul>
-      )
+    )
   };
 };
 

@@ -3,7 +3,7 @@ import Chart from "react-google-charts";
 import './markets.css';
 
 class Markets extends Component {
-  render () {
+  render() {
 
     const data = [
       ["Year", "Sales", "Expenses"],
@@ -17,15 +17,15 @@ class Markets extends Component {
       title: "Company Performance",
       legend: { position: "bottom" }
     };
-    
+
     return (
-        <div className="markets">
-          <div className="card">
-            <div className="card-header">
+      <div className="markets">
+        <div className="card">
+          <div className="card-header">
             <i className="fas fa-chart-line"></i>&nbsp;<span>Markets</span>
-            </div>
-            <div className="card-body">
-              <div className="line-chart-wrapper" style={{ width: '100%', height: '400px' }}>
+          </div>
+          <div className="card-body">
+            <div className="line-chart-wrapper" style={{ width: '100%', height: '400px' }}>
               <div className="App">
                 <Chart
                   chartType="LineChart"
@@ -34,13 +34,13 @@ class Markets extends Component {
                   data={data}
                   options={options}
                 />
-              </div>             
-                  </div>
-                    </div>
-                  </div>
               </div>
-          )
-        };
-      };
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  };
+};
 
 export default Markets;
