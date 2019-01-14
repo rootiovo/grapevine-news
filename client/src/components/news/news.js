@@ -5,7 +5,6 @@ import './news.css';
 
 class News extends Component {
     render() {
-
         return (
             <div>
                 {this.props.articles.map((article, index) => {
