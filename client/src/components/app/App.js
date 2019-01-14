@@ -5,7 +5,7 @@ import Categories from '../../components/categories/categories';
 import Weather from '../../components/weather/weather';
 import News from '../../components/news/news';
 import NewsService from '../../services/news.service';
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
     async getNews() {
 
         try {
-            let articles = await NewsService.getNews()
+            let articles = await NewsService.getNews('cnn,bbc-news,reuters,associated-press,the-wall-street-journal')
 
             this.setState({
                 articles: articles,
@@ -63,9 +63,9 @@ class App extends Component {
     render() {
 
         return (
-            <div className="app-container">
+            <div className="container-fluid app">
                 <Navigation onFilterTextChange={(text) => { this.searchNews(text) }} loading={this.state.isLoading} />
-                <div className="container-fluid">
+                <div className="container-fluid app">
                     <div className="row">
                         <div className="col-md-2">
                             <Categories />

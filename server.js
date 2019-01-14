@@ -23,15 +23,9 @@ app.get('/', (req, res) => {
 
 app.get('/api/news', async (req, res) => {
   const newsAPIkey = 'b3d4b1b9e75145cbaa401b5a33452c56';
-  const filter = req.query.filter;
-  const data = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsAPIkey}`);
-  let news = await data.json();
-
-  if (filter) {
-    news = news.articles.filter((article) => {
-      return article.title.toLowerCase().indexOf(filter.toLowerCase()) > -1;
-    });
-  }
+  const sources = req.query.sources;
+  const data = await fetch(`https://newsapi.org/v2/top-headlines?sources=${sources}&sortBy=publishedAt&apiKey=${newsAPIkey}`);
+  const news = await data.json();
 
   res.send(news.articles);
 });
@@ -39,7 +33,7 @@ app.get('/api/news', async (req, res) => {
 app.get('/api/news/:search', async (req, res) => {
   const newsAPIkey = 'b3d4b1b9e75145cbaa401b5a33452c56';
   const queryString = req.query.queryString;
-  const requestURL = `https://newsapi.org/v2/everything?q=${queryString}&apiKey=${newsAPIkey}`;
+  const requestURL = `https://newsapi.org/v2/everything?language=en&q=${queryString}&sortBy=publishedAt&apiKey=${newsAPIkey}`;
   const data = await fetch(requestURL);
   const news = await data.json();
 

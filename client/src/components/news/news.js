@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Article from '../../components/article/article';
-import moment from 'moment';
 import './news.css';
 
 class News extends Component {
     render() {
 
-        function sortArticlesByDate(articles){
-            return articles.sort((a, b) => moment(b.publishedAt) - moment(a.publishedAt));
-        }
-
         return (
             <div>
-                {sortArticlesByDate(this.props.articles).map((article, index) => {
+                {this.props.articles.map((article, index) => {
                     return (
-                        <Article key={index} article={article} />
+                        article.urlToImage && article.urlToImage !== '' ?
+                            <Article key={index} article={article} /> :
+                            <div></div>
                     )
                 })}
             </div>

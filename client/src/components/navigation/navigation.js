@@ -95,7 +95,7 @@ class Navigation extends Component {
   render() {
     const { classes } = this.props;
     return (      
-        <AppBar position="static" className="app-bar">
+        <AppBar position="fixed" className="app-bar">
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
               <MenuIcon />

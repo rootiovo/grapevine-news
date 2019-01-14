@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import moment from 'moment'
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import WeatherService from '../../services/weather.service'
-import './weather.css'
 import cloudy from '../../svg/weather/cloudy.svg'
 import cloudyNight from '../../svg/weather/cloudy-night-.svg'
 import rain from '../../svg/weather/rain.svg'
 import sun from '../../svg/weather/sun.svg'
 import moon from '../../svg/weather/crescent-moon.svg'
+import moment from 'moment'
+import './weather.css'
+
+const styles = theme => ({
+  root: {
+    // ...theme.mixins.gutters(),
+    // paddingTop: theme.spacing.unit * 2,
+    // paddingBottom: theme.spacing.unit * 2,
+  },
+});
 
 
 class Weather extends Component {
@@ -53,10 +63,11 @@ class Weather extends Component {
       ['cloudy', cloudy]
     ]);
 
+    const { classes } = this.props;
     return (
-      <div className="weather">
-        <div className="card">
-          <div className="card-body">
+      <div>
+      <Paper className={classes.root} elevation={1}>
+      <div className="card-body">
             {this.state.weather &&
               <div className="container-fluid">
                 <div className="row">
@@ -117,8 +128,8 @@ class Weather extends Component {
               </div>
             }
           </div>
-        </div>
-      </div>
+      </Paper>
+    </div>
     )
   }
 }
@@ -127,4 +138,4 @@ Weather.propTypes = {
   weather: PropTypes.object
 }
 
-export default Weather;
+export default withStyles(styles)(Weather);

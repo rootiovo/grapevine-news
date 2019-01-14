@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 class NewsService {
-    static async getNews(filter) {
+    static async getNews(sourcesArray) {
         let request = await axios.get('/api/news', {
             params: {
-                filter: filter
+                sources: sourcesArray
             }
         })
         return request.data

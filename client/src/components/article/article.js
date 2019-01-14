@@ -1,55 +1,69 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles'
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import ShareIcon from '@material-ui/icons/Share';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import moment from 'moment';
 import './article.css';
 
+const styles = theme => ({
+    card: {
+        maxWidth: 750,
+        marginBottom: '25px;'
+    },
+    media: {
+        height: 0,
+        paddingTop: '56.25%', // 16:9
+    },
+    actions: {
+        display: 'flex',
+    }
+});
+
 class Article extends Component {
     render() {
-
+        const { classes } = this.props;
         let article = this.props.article
 
-        return (
-            <div className="card">
-                <div className="card-body">
-                    {
-                        article.urlToImage ?
-                            <div>
-                                <div className="row">
-                                    <div className="col-md-9">
-                                        <h5 className="card-title"><a href={article.url}>{article.title}</a></h5>
-                                        <p className="publish-date">{`${article.source.name} · ${moment(article.publishedAt).fromNow()}`}</p>
-                                        <p className="card-text">{article.description}</p>
-                                    </div>
-                                    <div className="figure">
-                                        <img
-                                            className="article-image"
-                                            src={article.urlToImage}
-                                            alt="/" />
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-md-9">
-                                        <div className="article-actions">
-                                            <a href="/"><i className="fas fa-share-alt"></i></a>
-                                            <a href="/"><i className="far fa-bookmark"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            :
-                            <div>
-                                <h5 className="card-title"><a href={article.url}>{article.title.substring(0, article.title.lastIndexOf('- ')).trim()}</a></h5>
-                                <p className="publish-date">{moment(article.publishedAt).fromNow()}</p>
-                                <p className="card-text">{article.description}</p>
-                                <div className="article-actions">
-                                    <i className="fas fa-share-alt"></i>
-                                    <i className="far fa-bookmark"></i>
-                                </div>
-                            </div>
-                    }
-                </div>
-            </div>
+        return (    
+            <Card className={classes.card}>
+            <a href={article.url} target="_blank">
+                <CardActionArea>
+                    <CardMedia
+                        className={classes.media}
+                        image={article.urlToImage}
+                        title={article.title}
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {article.title}
+                        </Typography>
+                        <Typography component="p" className="card-text">
+                            {article.description}
+                        </Typography>
+                        <Typography component="p" className="publish-date">
+                            {`${article.source.name} · ${moment(article.publishedAt).fromNow()}`}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </a>
+            <CardActions className={classes.actions} disableActionSpacing>
+                <IconButton aria-label="Add to favorites">
+                    <BookmarkIcon />
+                </IconButton>
+                <IconButton aria-label="Share">
+                    <ShareIcon />
+                </IconButton>
+            </CardActions>
+        </Card>       
         )
     };
 };
 
-export default Article;
+export default withStyles(styles)(Article);

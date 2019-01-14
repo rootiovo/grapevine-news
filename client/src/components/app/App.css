@@ -3,12 +3,12 @@ body{
   background: #fafafb;
 }
 a {
-  color: #5590ad;
-  text-decoration: none;
+  color: #5590ad !important;
+  text-decoration: none !important;
 }
 a:hover {
-  color: #1b6c95;
-  text-decoration: none;
+  color: #1b6c95 !important;
+  text-decoration: none !important;
 }
 .navbar {
   height: 64px;
@@ -22,6 +22,9 @@ a:hover {
   margin-bottom:15px !important;
   border-radius: 10px;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}
+.app{
+  margin-top: 90px !important;
 }
 
 

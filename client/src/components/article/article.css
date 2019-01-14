@@ -6,8 +6,8 @@
     box-sizing: inherit;
 }
 .publish-date{
-    font-size: 15px;
-    color: #adb5bd;
+    font-size: 15px !important;
+    color: #adb5bd !important;
 }
 .article-actions{
     color: #999;
@@ -17,16 +17,7 @@
     margin-right:10px;
     margin-top:10px;
 }
-.figure{
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    bottom: auto;
-    left: auto;
-    z-index: 1;
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
+.card-text{
+    font-size: 15px !important;
+    margin-bottom:10px !important;
 }
