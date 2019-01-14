@@ -1,24 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
-import WeatherService from '../../services/weather.service'
-import cloudy from '../../svg/weather/cloudy.svg'
-import cloudyNight from '../../svg/weather/cloudy-night-.svg'
-import rain from '../../svg/weather/rain.svg'
-import sun from '../../svg/weather/sun.svg'
-import moon from '../../svg/weather/crescent-moon.svg'
-import moment from 'moment'
-import './weather.css'
-
-const styles = theme => ({
-  root: {
-    // ...theme.mixins.gutters(),
-    // paddingTop: theme.spacing.unit * 2,
-    // paddingBottom: theme.spacing.unit * 2,
-  },
-});
-
+import WeatherService from '../../services/weather.service';
+import moment from 'moment';
+import iconHash from './icon-map';
+import './weather.css';
 
 class Weather extends Component {
 
@@ -53,20 +39,9 @@ class Weather extends Component {
   }
 
   render() {
-    //Map icons to data
-    const iconHash = new Map([
-      ['clear-day', sun],
-      ['partly-cloudy-day', cloudy],
-      ['rain', rain],
-      ['partly-cloudy-night', cloudyNight],
-      ['clear-night', moon],
-      ['cloudy', cloudy]
-    ]);
-
-    const { classes } = this.props;
     return (
       <div>
-      <Paper className={classes.root} elevation={1}>
+      <Paper elevation={1}>
       <div className="card-body">
             {this.state.weather &&
               <div className="container-fluid">
@@ -138,4 +113,4 @@ Weather.propTypes = {
   weather: PropTypes.object
 }
 
-export default withStyles(styles)(Weather);
+export default Weather;
