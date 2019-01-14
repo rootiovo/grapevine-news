@@ -10,7 +10,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import homeIcon from '../../svg/navigation/newspaper.svg';
 import './navigation.css';
 
 const styles = theme => ({
@@ -26,6 +25,7 @@ const styles = theme => ({
   },
   title: {
     display: 'none',
+    height: '52px',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
@@ -100,8 +100,7 @@ class Navigation extends Component {
             <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
               <MenuIcon />
             </IconButton>
-            <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-              <img src={homeIcon} className="header-logo" height="50" width="50" alt="news" />
+            <Typography className={classes.title} variant="h6" color="inherit" noWrap>           
               <span className="logo-title">grapevine</span>
             </Typography>
             <div className={classes.grow} />
