@@ -5,14 +5,11 @@ import './news.css';
 
 class News extends Component {
     render() {
-        
+    
         return (
             <div>
                 {this.props.articles.map((article, index) => {
-                    return (
-                        article.urlToImage && article.urlToImage !== '' ?
-                            <Article key={index} article={article} /> :
-                            <div></div>
+                    return (article.urlToImage && article.urlToImage !== '' ? <Article key={index} article={article} /> : <div></div>
                     )
                 })}
             </div>
