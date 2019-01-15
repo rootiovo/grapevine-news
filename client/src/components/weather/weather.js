@@ -40,7 +40,7 @@ class Weather extends Component {
 
   render() {
     return (
-      <div>
+      <div className="weather">
       <Paper elevation={1}>
       <div className="card-body">
             {this.state.weather &&

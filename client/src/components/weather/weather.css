@@ -1,3 +1,8 @@
+@media screen and (max-width: 800px){
+    .weather{
+        display:none;
+    }
+}
 .col-xs-2{
     padding: 5px;
 }
@@ -31,7 +36,4 @@
 }
 .forecast{
     margin-left:20px;
-}
-.weather{
-    margin-right:9px;
 }

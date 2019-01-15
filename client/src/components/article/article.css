@@ -12,6 +12,9 @@
 .article-actions{
     color: #999;
     margin-top:10px;
+    background-color: whitesmoke;
+    border-top: 1px solid #607d8b1f;
+    margin-top: 0px !important;
 }
 .article-actions i{
     margin-right:10px;

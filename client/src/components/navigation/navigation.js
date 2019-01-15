@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -10,6 +10,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 import './navigation.css';
 
 const styles = theme => ({
@@ -73,56 +78,75 @@ const styles = theme => ({
   }
 });
 
-class Navigation extends Component {
+function Navigation(props) {
+  const [open, setState] = React.useState(false);
+  const { classes } = props;
 
-  constructor(props) {
-    super(props);
-
-    this.handleChange = this.handleChange.bind(this);
-    this.keyPress = this.keyPress.bind(this);
- } 
-
-  handleChange(e) {
-    this.setState({ value: e.target.value });
- }
-
- keyPress(e){
-    if(e.keyCode === 13){
-      this.props.onFilterTextChange(e.target.value)
-    }
- }
-
-  render() {
-    const { classes } = this.props;
-    return (      
-        <AppBar position="fixed" className="app-bar">
-          <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
-              <MenuIcon />
-            </IconButton>
-            <Typography className={classes.title} variant="h6" color="inherit" noWrap>           
-              <span className="logo-title">grapevine</span>
-            </Typography>
-            <div className={classes.grow} />
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                  placeholder="Search…"
-                  onKeyDown={this.keyPress} 
-                  onChange={this.handleChange}  
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                  }}
-                />                        
-            </div>
-          </Toolbar>   
-          {this.props.loading && <LinearProgress />}                
-        </AppBar>       
-    )
+  const toggleDrawer = (status) => () => {
+    console.log('toggle drawer')
+    setState(status);
   };
+
+  const keyPress = (e) => {
+    if (e.keyCode === 13) {
+      props.onFilterTextChange(e.target.value)
+    }
+  };
+
+  return (
+    <AppBar position="fixed" className="app-bar">
+      <Toolbar>
+        <IconButton
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="Open drawer"
+          onClick={toggleDrawer(true)}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Drawer 
+          open={open}
+          onClose={toggleDrawer(false)}
+        >
+          <div
+           className="category-drawer"
+            tabIndex={0}
+            role="button"
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
+          >
+            <div className={classes.list}>
+              <List>
+                {['Top Stories', 'Business', 'Entertainment', 'Sports', 'Science', 'Technology', 'Health'].map((text, index) => (
+                  <ListItem button key={text}>                   
+                    <ListItemText primary={text} />
+                  </ListItem>
+                ))}
+              </List>
+            </div>
+          </div>
+        </Drawer>
+        <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+          <a href="/"><span className="logo-title">grapevine</span></a>
+        </Typography>
+        <div className={classes.grow} />
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
+          </div>
+          <InputBase
+            placeholder="Search…"
+            onKeyDown={keyPress}
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+          />
+        </div>
+      </Toolbar>
+      {props.loading && <LinearProgress />}
+    </AppBar>
+  )
 };
 
 Navigation.propTypes = {

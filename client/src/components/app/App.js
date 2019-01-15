@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Navigation from '../../components/navigation/navigation';
-import Categories from '../../components/categories/categories';
 import Weather from '../../components/weather/weather';
 import News from '../../components/news/news';
 import NewsService from '../../services/news.service';
@@ -27,7 +26,7 @@ class App extends Component {
     async getNews() {
 
         try {
-            let articles = await NewsService.getNews('cnn,bbc-news,reuters,associated-press,the-wall-street-journal')
+            let articles = await NewsService.getNews('cnn,bbc-news,reuters,associated-press,the-wall-street-journal,ars-technica,the-washington-post,the-new-york-times')
 
             this.setState({
                 articles: articles,
@@ -39,7 +38,7 @@ class App extends Component {
         }
     };
 
-    async searchNews(queryString) {
+    async searchNews(queryString,sources) {
 
         if (queryString !== '') {
             this.setState({
@@ -47,7 +46,7 @@ class App extends Component {
             });
 
             try {
-                let articles = await NewsService.searchNews(queryString)
+                let articles = await NewsService.searchNews(queryString,'cnn,bbc-news,reuters,associated-press,the-wall-street-journal,ars-technica,the-washington-post')
 
                 this.setState({
                     articles: articles,
@@ -67,9 +66,7 @@ class App extends Component {
                 <Navigation onFilterTextChange={(text) => { this.searchNews(text) }} loading={this.state.isLoading} />
                 <div className="container-fluid app">
                     <div className="row">
-                        <div className="col-md-2">
-                            <Categories />
-                        </div>
+                        <div className="col-md-2"></div>
                         <div className="col-md-6">
                             <News articles={this.state.articles} />
                         </div>

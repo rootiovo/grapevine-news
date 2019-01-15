@@ -10,10 +10,11 @@ class NewsService {
         return request.data
     };
 
-    static async searchNews(query) {
+    static async searchNews(query, sources) {
         let request = await axios.get('/api/news/:search', {
             params: {
-                queryString: query
+                queryString: query,
+                sourceList: sources
             }
         })
         return request.data

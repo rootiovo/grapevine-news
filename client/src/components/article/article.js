@@ -53,7 +53,7 @@ class Article extends Component {
                     </CardContent>
                 </CardActionArea>
             </a>
-            <CardActions className={classes.actions} disableActionSpacing>
+            <CardActions className={`article-actions ${classes.actions}`} disableActionSpacing>
                 <IconButton aria-label="Add to favorites">
                     <BookmarkIcon />
                 </IconButton>
