@@ -14,11 +14,13 @@
     font-weight: bold;   
 }
 .current-temp{
-    font-size: 40px;    
+    font-size: 81px;    
     text-align: center;
+    line-height: 1;
 }
 .current-high-low{
     text-align: center;
+    display: none;
 }
 .forecast-day{
     padding-bottom: 5px;

@@ -44,7 +44,7 @@ class Weather extends Component {
               <div className="container-fluid">
                 <div className="row">
                   <div className="col-md-4">
-                    <img src={iconHash.get(this.state.weather.currently.icon)} height="100" width="100" alt="/" />
+                    <img src={iconHash.get(this.state.weather.currently.icon)} height="80" width="80" alt="/" />
                   </div>
                   <div className="col-md-4">
                     <div className="current-city-name">
