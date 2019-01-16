@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import Article from '../../components/article/article';
 import './news.css';
 
-class News extends Component {
-    render() {
-
+function News(props) {
+  return (
+    <div>
+      {props.articles.map((article, index) => {
         return (
-            <div>
-                {this.props.articles.map((article, index) => {
-                    return (
-                        article.urlToImage && article.urlToImage !== '' ?
-                            <Article key={index} article={article} />
-                            :
-                            <div></div>
-                    )
-                })}
-            </div>
-        )
-    }
-};
-
-News.propTypes = {
-    articles: PropTypes.array
-};
+          article.urlToImage && article.urlToImage !== '' ?
+            <Article key={index} article={article} />
+            :
+            <div />
+        );
+      })}
+    </div>
+  );
+}
 
 export default News;

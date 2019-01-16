@@ -1,40 +1,37 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
-import WeatherService from '../../services/weather.service';
 import moment from 'moment';
+import WeatherService from '../../services/weather.service';
 import iconHash from './icon-map';
 import './weather.css';
 
 class Weather extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      weather: null
-    }
+      weather: null,
+    };
   }
 
   componentWillMount() {
-    //get weather data for current geolocation
+    // get weather data for current geolocation
     navigator.geolocation.getCurrentPosition((position) => {
-      let coords = position
+      const coords = position;
 
-      this.getWeather(coords.latitude, coords.longitude)
+      this.getWeather(coords.latitude, coords.longitude);
     });
   }
 
   async getWeather(lat, long) {
     try {
-      let weatherData = await WeatherService.getWeather(lat, long)
+      const weatherData = await WeatherService.getWeather(lat, long);
 
       this.setState({
-        weather: weatherData
-      })
-    }
-    catch (err) {
-      console.log(err)
+        weather: weatherData,
+      });
+    } catch (err) {
+      console.log(err);
     }
   }
 
@@ -107,10 +104,6 @@ class Weather extends Component {
     </div>
     )
   }
-}
-
-Weather.propTypes = {
-  weather: PropTypes.object
 }
 
 export default Weather;

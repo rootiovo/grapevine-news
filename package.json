@@ -9,9 +9,7 @@
     "curl": "^0.1.4",
     "express": "4.13.3",
     "fs": "0.0.2",
-    "g": "^2.0.1",
-    "node-fetch": "^2.3.0",
-    "rss-parser": "^3.6.2"
+    "node-fetch": "^2.3.0"
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
@@ -24,7 +22,7 @@
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "14.1.0",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "6.9.0"
   }
 }

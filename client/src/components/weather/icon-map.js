@@ -4,7 +4,7 @@ import rain from '../../svg/weather/rain.svg'
 import sun from '../../svg/weather/sun.svg'
 import moon from '../../svg/weather/crescent-moon.svg'
  
- //Map icons to data
+ // Map icons to data
  const iconHash = new Map([
     ['clear-day', sun],
     ['partly-cloudy-day', cloudy],
@@ -14,4 +14,4 @@ import moon from '../../svg/weather/crescent-moon.svg'
     ['cloudy', cloudy]
   ]);
 
-  export default iconHash;
+export default iconHash;

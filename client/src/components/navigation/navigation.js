@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,8 +12,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import categories from './categories/categories';
 import './navigation.css';
 
 const styles = theme => ({
@@ -79,11 +78,10 @@ const styles = theme => ({
 });
 
 function Navigation(props) {
-  const [open, setState] = React.useState(false);
+  const [ open, setState ] = React.useState(false);
   const { classes } = props;
 
-  const toggleDrawer = (status) => () => {
-    console.log('toggle drawer')
+  const toggleDrawer = status => () => {
     setState(status);
   };
 
@@ -93,32 +91,36 @@ function Navigation(props) {
     }
   };
 
+  const handleCategoryChange = (category) => {
+    props.handleCategoryChange(category);
+  };
+
   return (
-    <AppBar position="fixed" className="app-bar">
+    <AppBar position='fixed' className='app-bar'>
       <Toolbar>
         <IconButton
           className={classes.menuButton}
-          color="inherit"
-          aria-label="Open drawer"
+          color='inherit'
+          aria-label='Open drawer'
           onClick={toggleDrawer(true)}
         >
           <MenuIcon />
         </IconButton>
-        <Drawer 
+        <Drawer
           open={open}
           onClose={toggleDrawer(false)}
         >
           <div
-           className="category-drawer"
+            className='category-drawer'
             tabIndex={0}
-            role="button"
+            role='button'
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
           >
             <div className={classes.list}>
               <List>
-                {['Top Stories', 'Business', 'Entertainment', 'Sports', 'Science', 'Technology', 'Health'].map((text, index) => (
-                  <ListItem button key={text}>                   
+                {categories.map((text, index) => (
+                  <ListItem button key={index} onClick={() => { handleCategoryChange(text); }}>
                     <ListItemText primary={text} />
                   </ListItem>
                 ))}
@@ -126,8 +128,8 @@ function Navigation(props) {
             </div>
           </div>
         </Drawer>
-        <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-          <a href="/"><span className="logo-title">grapevine</span></a>
+        <Typography className={classes.title} variant='h6' color='inherit' noWrap>
+          <a href='/'><span className='logo-title'>grapevine</span></a>
         </Typography>
         <div className={classes.grow} />
         <div className={classes.search}>
@@ -135,7 +137,7 @@ function Navigation(props) {
             <SearchIcon />
           </div>
           <InputBase
-            placeholder="Search…"
+            placeholder='Search…'
             onKeyDown={keyPress}
             classes={{
               root: classes.inputRoot,
@@ -146,11 +148,7 @@ function Navigation(props) {
       </Toolbar>
       {props.loading && <LinearProgress />}
     </AppBar>
-  )
-};
-
-Navigation.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  );
+}
 
 export default withStyles(styles)(Navigation);

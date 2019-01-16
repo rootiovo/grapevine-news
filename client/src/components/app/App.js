@@ -1,88 +1,92 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import Navigation from '../../components/navigation/navigation';
 import Weather from '../../components/weather/weather';
 import News from '../../components/news/news';
 import NewsService from '../../services/news.service';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import sources from './sources/sources';
 
 class App extends Component {
-
-    constructor() {
-        super();
-        this.state = {
-            filterString: '',
-            queryString: '',
-            articles: [],
-            isLoading: true
-        };
+  constructor() {
+    super();
+    this.state = {
+      queryString: '',
+      articles: [],
+      isLoading: true,
     };
+  }
 
-    componentWillMount() {
-        this.getNews()
-    };
+  componentWillMount() {
+    this.getNews();
+  }
 
-    async getNews() {
+  async getNews() {
+    try {
+      const articlesAll = await NewsService.getNews(sources.toString());
 
-        try {
-            let articles = await NewsService.getNews('cnn,bbc-news,reuters,associated-press,the-wall-street-journal,ars-technica,the-washington-post,the-new-york-times')
+      this.setState({
+        articles: articlesAll,
+        isLoading: false,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-            this.setState({
-                articles: articles,
-                isLoading: false
-            })
-        }
-        catch (err) {
-            console.log(err)
-        }
-    };
+  async getNewsByCategory(category) {
+    try {
+      const articlesByCategory = await NewsService.getNewsByCategory(category.toLowerCase().trim());
+      this.setState({
+        articles: articlesByCategory,
+        isLoading: false,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-    async searchNews(queryString,sources) {
+  async searchNews(queryString) {
+    if (queryString !== '') {
+      this.setState({
+        isLoading: true,
+      });
 
-        if (queryString !== '') {
-            this.setState({
-                isLoading: true
-            });
+      try {
+        const articlesBySearch = await NewsService.searchNews(queryString, sources.toString());
 
-            try {
-                let articles = await NewsService.searchNews(queryString,'cnn,bbc-news,reuters,associated-press,the-wall-street-journal,ars-technica,the-washington-post')
+        this.setState({
+          articles: articlesBySearch,
+          isLoading: false,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
 
-                this.setState({
-                    articles: articles,
-                    isLoading: false
-                });
-            }
-            catch (err) {
-                console.log(err)
-            }
-        }
-    };
-
-    render() {
-
-        return (
-            <div className="container-fluid app">
-                <Navigation onFilterTextChange={(text) => { this.searchNews(text) }} loading={this.state.isLoading} />
-                <div className="container-fluid app">
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-6">
-                            <News articles={this.state.articles} />
-                        </div>
-                        <div className="col-md-4">
-                            <Weather />
-                        </div>
-                    </div>
-                </div>
+  render() {
+    return (
+      <div className='container-fluid app'>
+        <Navigation
+          onFilterTextChange={(text) => { this.searchNews(text); }}
+          loading={this.state.isLoading}
+          handleCategoryChange={(category) => { this.getNewsByCategory(category); }}
+        />
+        <div className='container-fluid app'>
+          <div className='row'>
+            <div className='col-md-2' />
+            <div className='col-md-6'>
+              <News articles={this.state.articles} />
             </div>
-        )
-    };
-};
-
-App.propTypes = {
-    filterString: PropTypes.string
-};
-
+            <div className='col-md-4'>
+              <Weather />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default App;

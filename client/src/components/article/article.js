@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles'
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
@@ -13,57 +13,56 @@ import moment from 'moment';
 import './article.css';
 
 const styles = theme => ({
-    card: {
-        maxWidth: 750,
-        marginBottom: '25px;'
-    },
-    media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-    },
-    actions: {
-        display: 'flex',
-    }
+  card: {
+    maxWidth: 750,
+    marginBottom: '25px;',
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  actions: {
+    display: 'flex',
+  },
 });
 
-class Article extends Component {
-    render() {
-        const { classes } = this.props;
-        let article = this.props.article
+function Article(props) {
+  const { classes } = props;
+  const article = props.article;
 
-        return (    
-            <Card className={classes.card}>
-            <a href={article.url} target="_blank">
-                <CardActionArea>
-                    <CardMedia
-                        className={classes.media}
-                        image={article.urlToImage}
-                        title={article.title}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                            {article.title}
-                        </Typography>
-                        <Typography component="p" className="card-text">
-                            {article.description}
-                        </Typography>
-                        <Typography component="p" className="publish-date">
-                            {`${article.source.name} · ${moment(article.publishedAt).fromNow()}`}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </a>
-            <CardActions className={`article-actions ${classes.actions}`} disableActionSpacing>
-                <IconButton aria-label="Add to favorites">
-                    <BookmarkIcon />
-                </IconButton>
-                <IconButton aria-label="Share">
-                    <ShareIcon />
-                </IconButton>
-            </CardActions>
-        </Card>       
-        )
-    };
-};
+  return (
+    <Card className={classes.card}>
+      <a href={article.url} target='_blank' rel='noopener noreferrer'>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={article.urlToImage}
+            title={article.title}
+            alt='/'
+          />
+          <CardContent>
+            <Typography gutterBottom variant='h5' component='h2'>
+              {article.title}
+            </Typography>
+            <Typography component='p' className='card-text'>
+              {article.description}
+            </Typography>
+            <Typography component='p' className='publish-date'>
+              {`${article.source.name} · ${moment(article.publishedAt).fromNow()}`}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </a>
+      <CardActions className={`article-actions ${classes.actions}`} disableActionSpacing>
+        {/* <IconButton aria-label='Add to favorites'>
+          <BookmarkIcon />
+        </IconButton> */}
+        <IconButton aria-label='Share'>
+          <ShareIcon />
+        </IconButton>
+      </CardActions>
+    </Card>
+  );
+}
 
 export default withStyles(styles)(Article);
