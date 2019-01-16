@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // Index Route
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/public/index.html'), 
+  res.sendFile(path.join(__dirname, '/client/public/index.html'),
    (err) => {
      if (err) {
        res.status(500).send(err);
@@ -23,18 +23,27 @@ app.get('/', (req, res) => {
 
 app.get('/api/news', async (req, res) => {
   const newsAPIkey = 'b3d4b1b9e75145cbaa401b5a33452c56';
-  const sources = req.query.sources;
+  const sources = req.query.sourceList;
   const data = await fetch(`https://newsapi.org/v2/top-headlines?sources=${sources}&sortBy=publishedAt&apiKey=${newsAPIkey}`);
   const news = await data.json();
 
   res.send(news.articles);
 });
 
-app.get('/api/news/:search', async (req, res) => {
+app.get('/api/news/category', async (req, res) => {
+  const newsAPIkey = 'b3d4b1b9e75145cbaa401b5a33452c56';
+  const category = req.query.category;
+  const data = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${newsAPIkey}`);
+  const news = await data.json();
+
+  res.send(news.articles);
+});
+
+app.get('/api/news/search', async (req, res) => {
   const newsAPIkey = 'b3d4b1b9e75145cbaa401b5a33452c56';
   const queryString = req.query.queryString;
-  const requestURL = `https://newsapi.org/v2/everything?language=en&q=${queryString}&sortBy=publishedAt&apiKey=${newsAPIkey}`;
-  const data = await fetch(requestURL);
+  const sources = req.query.sourceList;
+  const data = await fetch(`https://newsapi.org/v2/everything?language=en&q=${queryString}&sources=${sources}&sortBy=publishedAt&apiKey=${newsAPIkey}`);
   const news = await data.json();
 
   res.send(news.articles);
