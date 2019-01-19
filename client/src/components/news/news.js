@@ -4,7 +4,7 @@ import './news.css';
 
 function News(props) {
   return (
-    <div>
+    <React.Fragment>
       {props.articles.map((article, index) => {
         return (
           article.urlToImage && article.urlToImage !== '' ?
@@ -13,7 +13,7 @@ function News(props) {
             <div />
         );
       })}
-    </div>
+    </React.Fragment>
   );
 }
 

@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -14,6 +15,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import categories from './categories/categories';
+import iconHash from './categories/category-icon-map';
 import './navigation.css';
 
 const styles = theme => ({
@@ -119,12 +121,14 @@ function Navigation(props) {
           >
             <div className={classes.list}>
               <List>
-                {categories.map((text, index) => (
+                {categories.map((text, index) => (                 
                   <ListItem button key={index} onClick={() => { handleCategoryChange(text); }}>
+                    <i className={iconHash.get(text.toLowerCase().trim())} />
                     <ListItemText primary={text} />
                   </ListItem>
                 ))}
               </List>
+              <Divider />
             </div>
           </div>
         </Drawer>
