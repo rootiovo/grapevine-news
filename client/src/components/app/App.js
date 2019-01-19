@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Navigation from '../../components/navigation/navigation';
 import Weather from '../../components/weather/weather';
