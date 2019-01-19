@@ -67,24 +67,24 @@ class App extends Component {
 
   render() {
     return (
-      <div className='container-fluid app'>
-        <Navigation
-          onFilterTextChange={(text) => { this.searchNews(text); }}
-          loading={this.state.isLoading}
-          handleCategoryChange={(category) => { this.getNewsByCategory(category); }}
-        />
-        <div className='container-fluid app'>
-          <div className='row'>
-            <div className='col-md-2' />
-            <div className='col-md-6'>
-              <News articles={this.state.articles} />
-            </div>
-            <div className='col-md-4'>
-              <Weather />
-            </div>
+      <React.Fragment>
+        <div className='nav-container'>
+          <Navigation
+            onFilterTextChange={(text) => { this.searchNews(text); }}
+            loading={this.state.isLoading}
+            handleCategoryChange={(category) => { this.getNewsByCategory(category); }}
+          />
+        </div>
+        <div className='content-container'>
+          <div className='column' />
+          <div className='column-news'>
+            <News articles={this.state.articles} />
+          </div>
+          <div className='column-weather'>
+            <Weather />
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
