@@ -7,7 +7,6 @@ import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ShareIcon from '@material-ui/icons/Share';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import moment from 'moment';
 import './article.css';
@@ -53,10 +52,10 @@ function Article(props) {
           </CardContent>
         </CardActionArea>
       </a>
-      <CardActions className={`article-actions ${classes.actions}`} disableActionSpacing>
-        {/* <IconButton aria-label='Add to favorites'>
-          <BookmarkIcon />
-        </IconButton> */}
+      <CardActions
+        className={`article-actions ${classes.actions}`}
+        disableActionSpacing
+      >
         <IconButton aria-label='Share'>
           <ShareIcon />
         </IconButton>
