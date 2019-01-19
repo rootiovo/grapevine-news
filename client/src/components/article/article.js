@@ -13,7 +13,7 @@ import './article.css';
 
 const styles = theme => ({
   card: {
-    maxWidth: 750,
+    // maxWidth: 750,
     marginBottom: '25px;',
   },
   media: {

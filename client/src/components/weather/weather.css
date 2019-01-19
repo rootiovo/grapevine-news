@@ -1,13 +1,18 @@
-@media screen and (max-width: 800px){
-    .weather{
-        display:none;
-    }
+hr {
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
 }
-.col-xs-2{
-    padding: 5px;
+.weather{
+    width: 30rem;
 }
-.col-half-offset{
-    margin-left:4.166666667%
+.weather-summary{
+    margin-bottom: 0 !important;
+    margin-top: 1.25rem;
+    padding:1rem;
+    background-color:rgb(156, 211, 255);
+    font-size:18px;
+    border-radius: .30rem;
+    color: rgba(0, 0, 0, 0.644);
 }
 .current-city-name{
     font-size: 20px; 
@@ -32,10 +37,29 @@
 .temp-low{
     color:#0000ff7d;
 }
-.weather-summary{
-    margin-bottom: 0 !important;
-    margin-top: 1.25rem;
-}
 .forecast{
     margin-left:20px;
+}
+.container-weather{
+    padding:10px;
+}
+.column-weather{
+    flex:1;
+}
+.container-current{
+    display:flex;
+}
+.container-forecast{
+    display:flex;
+    justify-content:space-around;
+    flex-direction:row;
+}
+.column-forecast{
+    flex:1;
+    text-align:center;
+}
+@media screen and (max-width: 800px){
+    .weather{
+        display:none;
+    }
 }
