@@ -40,24 +40,22 @@ class Weather extends Component {
       <React.Fragment>
         <Paper elevation={1} className='weather'>
           {this.state.weather &&
+          
             <div className='container-weather'>
+              <div className='weather-header'>{this.state.weather.timezone.replace('_', ' ').split('/')[1]}</div>
+              <hr />
               <div className='container-current'>
-                <div className='column-weather'>
+                <div className='column-current' style={{ marginRight: '40%' }}>
                   <img
+                    className='current-weather-icon'
                     src={iconHash.get(this.state.weather.currently.icon)}
-                    height='80'
-                    width='80'
+                    height='100'
+                    width='100'
                     alt='/'
                   />
-                </div>
-                <div className='column-weather'>
-                  <div className='current-city-name'>
-                    {this.state.weather.timezone.replace('_', ' ').split('/')[1]}
-                  </div>
-                  <div>{this.state.weather.currently.summary}</div>
-                  <div>{`'Humidity: '  ${this.state.weather.currently.humidity}  '%'`}</div>
-                </div>
-                <div className='column-weather'>
+                  <div className='current-status'>{this.state.weather.currently.summary}</div>
+                </div>               
+                <div className='column-current'>
                   <div className='current-temp'>
                     {Math.round(this.state.weather.currently.temperature)}°
                   </div>
@@ -101,6 +99,10 @@ class Weather extends Component {
               <div className='weather-summary'>
                 <i className='fas fa-info-circle' />&nbsp;
                 {this.state.weather.daily.summary}
+              </div>
+              <hr />
+              <div>
+                <span><a href='/'>C</a> | <strong><a href='/'>F</a></strong> | <a href='/'>K</a></span>
               </div>
             </div>
           }
