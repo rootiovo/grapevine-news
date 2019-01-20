@@ -7,16 +7,12 @@ const sources = [
   'ars-technica',
   'the-washington-post',
   'the-new-york-times',
-  'bleacher-report',
   'bloomberg',
   'engadget',
   'espn',
-  'hacker-news',
   'the-verge',
   'techcrunch',
   'wired',
-  'vice-news',
-  'usa-today',
 ];
 
 export default sources;
