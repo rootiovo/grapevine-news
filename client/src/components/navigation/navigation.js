@@ -80,7 +80,8 @@ const styles = theme => ({
 });
 
 function Navigation(props) {
-  const [ open, setState ] = React.useState(false);
+  const [open, setState] = React.useState(false);
+  const [category, setCategory] = React.useState(null);
   const { classes } = props;
 
   const toggleDrawer = status => () => {
@@ -95,63 +96,87 @@ function Navigation(props) {
 
   const handleCategoryChange = (category) => {
     props.handleCategoryChange(category);
+    setCategory(category);
   };
 
   return (
-    <AppBar position='fixed' className='app-bar'>
-      <Toolbar>
-        <IconButton
-          className={classes.menuButton}
-          color='inherit'
-          aria-label='Open drawer'
-          onClick={toggleDrawer(true)}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Drawer
-          open={open}
-          onClose={toggleDrawer(false)}
-        >
-          <div
-            className='category-drawer'
-            tabIndex={0}
-            role='button'
-            onClick={toggleDrawer(false)}
-            onKeyDown={toggleDrawer(false)}
+    <React.Fragment>
+      <AppBar position='fixed' className='app-bar'>
+        <Toolbar>
+          <IconButton
+            className={classes.menuButton}
+            color='inherit'
+            aria-label='Open drawer'
+            onClick={toggleDrawer(true)}
           >
-            <div className={classes.list}>
-              <List>
-                {categories.map((text, index) => (                 
-                  <ListItem button key={index} onClick={() => { handleCategoryChange(text); }}>
-                    <i className={iconHash.get(text.toLowerCase().trim())} />
-                    <ListItemText primary={text} />
-                  </ListItem>
-                ))}
-              </List>
-              <Divider />
+            <MenuIcon />
+          </IconButton>
+          <Typography className={classes.title} variant='h6' color='inherit' noWrap>
+            <a href='/'><span className='logo-title'>grapevine</span></a>
+          </Typography>
+          <div className={classes.grow} />
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder='Search…'
+              onKeyDown={keyPress}
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+            />
+          </div>
+        </Toolbar>
+        {props.loading && <LinearProgress />}
+      </AppBar>
+      {
+        category ?
+          <div className='category-header'>
+            <div>
+              <i className={iconHash.get(category.toLowerCase())} />
+              <span>&nbsp;{category}</span>
             </div>
           </div>
-        </Drawer>
-        <Typography className={classes.title} variant='h6' color='inherit' noWrap>
-          <a href='/'><span className='logo-title'>grapevine</span></a>
-        </Typography>
-        <div className={classes.grow} />
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
+          :
+          <div className='category-header'>
+            <div>
+              <i className='fas fa-bookmark' />
+              <span>&nbsp;Top Headlines</span>
+            </div>
           </div>
-          <InputBase
-            placeholder='Search…'
-            onKeyDown={keyPress}
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-          />
+      }
+
+      <Drawer
+        open={open}
+        onClose={toggleDrawer(false)}
+      >
+        <div
+          className='category-drawer'
+          tabIndex={0}
+          role='button'
+          onClick={toggleDrawer(false)}
+          onKeyDown={toggleDrawer(false)}
+        >
+          <div className={classes.list}>
+            <List>
+              {categories.map((text, index) => (
+                <ListItem
+                  className='list-item'
+                  button key={index}
+                  onClick={() => { handleCategoryChange(text); }}
+                >
+                  <i className={iconHash.get(text.toLowerCase().trim())} />
+                  <ListItemText primary={text} />
+                </ListItem>
+              ))}
+            </List>
+            <Divider />
+          </div>
         </div>
-      </Toolbar>
-      {props.loading && <LinearProgress />}
-    </AppBar>
+      </Drawer>
+    </React.Fragment>
   );
 }
 

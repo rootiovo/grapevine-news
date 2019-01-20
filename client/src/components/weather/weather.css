@@ -20,26 +20,12 @@ hr {
     font-weight: bold;   
 }
 .current-temp{
-    font-size: 81px;    
+    font-size: 60px;    
     text-align: center;
     line-height: 1;
 }
-.current-high-low{
-    text-align: center;
-    display: none;
-}
 .forecast-day{
     padding-bottom: 5px;
-    text-align: center;
-}
-.temp-high{
-    color:#ff00008f;
-}
-.temp-low{
-    color:#0000ff7d;
-}
-.forecast{
-    margin-left:20px;
 }
 .container-weather{
     padding:10px;
@@ -73,6 +59,15 @@ hr {
     margin-top:10px;
     font-size:20px;
     text-align: center;
+}
+.forecast-high{
+    margin: 0;
+    font-size: 18px;
+}
+.forecast-low{
+    margin:0;
+    font-size: 18px;
+    color:rgba(131, 131, 131, 0.808);
 }
 @media screen and (max-width: 800px){
     .weather{
