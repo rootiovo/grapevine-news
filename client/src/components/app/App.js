@@ -5,6 +5,7 @@ import Weather from '../../components/weather/weather';
 import News from '../../components/news/news';
 import NewsService from '../../services/news.service';
 import sources from './sources/sources';
+import { Provider } from '../../context';
 
 
 class App extends Component {
@@ -64,24 +65,27 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <div className='nav-container'>
-          <Navigation
-            onFilterTextChange={(text) => { this.searchNews(text); }}
-            loading={this.state.isLoading}
-            handleCategoryChange={(category) => { this.getNewsByCategory(category); }}
-          />
-        </div>
-        <div className='content-container'>
-          <div className='column' />
-          <div className='column-news'>
-            <News articles={this.state.articles} />
+      <Provider>
+        <React.Fragment>
+          <div className='nav-container'>
+            <Navigation
+              onFilterTextChange={(text) => { this.searchNews(text); }}
+              loading={this.state.isLoading}
+              handleCategoryChange={(category) => { this.getNewsByCategory(category); }}
+            />
           </div>
-          <div className='column-weather'>
-            <Weather />
+          <div className='content-container'>
+            <div className='column' />
+            <div className='column-news'>
+              <News articles={this.state.articles} />
+            </div>
+            <div className='column-weather'>
+              <Weather />
+            </div>
           </div>
-        </div>
-      </React.Fragment>
+        </React.Fragment>
+      </Provider>
+
     );
   }
 }
