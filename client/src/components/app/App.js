@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Paper from '@material-ui/core/Paper';
 import './App.css';
 import Navigation from '../../components/navigation/navigation';
 import Weather from '../../components/weather/weather';
@@ -9,14 +8,11 @@ import sources from './sources/sources';
 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      queryString: '',
-      articles: [],
-      isLoading: true,
-    };
-  }
+  state = {
+    queryString: '',
+    articles: [],
+    isLoading: true,
+  };
 
   componentWillMount() {
     this.getNews();
@@ -75,7 +71,7 @@ class App extends Component {
             loading={this.state.isLoading}
             handleCategoryChange={(category) => { this.getNewsByCategory(category); }}
           />
-        </div>      
+        </div>
         <div className='content-container'>
           <div className='column' />
           <div className='column-news'>

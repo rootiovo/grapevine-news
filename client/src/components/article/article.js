@@ -52,14 +52,14 @@ function Article(props) {
           </CardContent>
         </CardActionArea>
       </a>
-      <CardActions
+      {/* <CardActions
         className={`article-actions ${classes.actions}`}
         disableActionSpacing
       >
         <IconButton aria-label='Share'>
           <ShareIcon />
         </IconButton>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }

@@ -6,13 +6,10 @@ import iconHash from './icon-map';
 import './weather.css';
 
 class Weather extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    weather: null,
+  };
 
-    this.state = {
-      weather: null,
-    };
-  }
 
   componentWillMount() {
     // get weather data for current geolocation
