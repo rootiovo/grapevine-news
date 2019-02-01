@@ -3,10 +3,10 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
+// import CardActions from '@material-ui/core/CardActions';
+// import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import ShareIcon from '@material-ui/icons/Share';
+// import ShareIcon from '@material-ui/icons/Share';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import moment from 'moment';
 import './article.css';
@@ -52,14 +52,6 @@ function Article(props) {
           </CardContent>
         </CardActionArea>
       </a>
-      {/* <CardActions
-        className={`article-actions ${classes.actions}`}
-        disableActionSpacing
-      >
-        <IconButton aria-label='Share'>
-          <ShareIcon />
-        </IconButton>
-      </CardActions> */}
     </Card>
   );
 }
