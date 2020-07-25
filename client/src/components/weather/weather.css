@@ -48,6 +48,7 @@ hr {
 .column-forecast{
     flex:1;
     text-align:center;
+    
 }
 .weather-header{
     margin:5px;
