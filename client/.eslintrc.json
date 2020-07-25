@@ -2,6 +2,7 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
+    
     "arrow-body-style": ["error", "always"],
     "linebreak-style": ["error", "windows"],
     "array-bracket-spacing": [2, "always"],
@@ -12,6 +13,7 @@
     "max-len": ["error", { "code": 80, "ignoreTrailingComments": true }],
     "no-use-before-define": [2, "nofunc"],
     "no-shadow": 0,
+    "no-undef": 0,
     "prefer-const": 1,
     "quote-props": [1, "consistent-as-needed"],
     "react/no-multi-comp": 0,
@@ -24,5 +26,9 @@
     "react",
     "jsx-a11y",
     "import"
-  ]
+  ],
+    "globals": {
+        "_": false
+    }
+
 }

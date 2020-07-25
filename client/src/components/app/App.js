@@ -9,11 +9,16 @@ import { Provider } from '../../context';
 
 
 class App extends Component {
-  state = {
-    queryString: '',
-    articles: [],
-    isLoading: true,
-  };
+
+  constructor(props){
+    super(props);
+    
+    this.state = {
+      queryString: '',
+      articles: [],
+      isLoading: true,
+    };
+  }
 
   componentWillMount() {
     this.getNews();

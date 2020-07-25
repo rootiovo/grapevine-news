@@ -6,8 +6,15 @@ import iconHash from './icon-map';
 import './weather.css';
 
 class Weather extends Component {
-  state = {
-    weather: null,
+  
+  constructor(props){
+
+    super(props);
+    this.state = {
+      weather: null
+    };
+
+
   };
 
 
