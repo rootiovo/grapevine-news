@@ -101,7 +101,7 @@ function Navigation(props) {
 
   return (
     <React.Fragment>
-      <AppBar position='fixed' className='app-bar'>
+      <AppBar position='realtive' className='app-bar'>
         <Toolbar>
           <IconButton
             className={classes.menuButton}
@@ -131,22 +131,6 @@ function Navigation(props) {
         </Toolbar>
         {props.loading && <LinearProgress />}
       </AppBar>
-      {
-        category ?
-          <div className='category-header'>
-            <div>
-              <i className={iconHash.get(category.toLowerCase())} />
-              <span>&nbsp;{category}</span>
-            </div>
-          </div>
-          :
-          <div className='category-header'>
-            <div>
-              <i className='fas fa-bookmark' />
-              <span>&nbsp;Top Headlines</span>
-            </div>
-          </div>
-      }
 
       <Drawer
         open={open}

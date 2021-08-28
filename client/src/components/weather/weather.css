@@ -10,10 +10,10 @@ hr {
     margin-bottom: 0 !important;
     margin-top: 1.25rem;
     padding:1rem;
-    background-color:#d1eaff8c;
+    background-color:#2196F0;
     font-size:15px;
-    border-radius: .30rem;
-    color: rgba(0, 0, 0, 0.644);
+    border-radius: .55rem;
+    color: rgba(255, 255, 255, 0.932);
 }
 .current-city-name{
     font-size: 20px; 
@@ -54,7 +54,7 @@ hr {
     margin:5px;
     margin-bottom:0;
     font-size:25px;
-    color:grey;
+    color:rgb(0, 0, 0);
     text-align:left;
 }
 .current-status{

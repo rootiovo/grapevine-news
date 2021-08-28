@@ -1,18 +1,41 @@
 header{
-  background-color:#2196f3 !important;
-  margin-bottom: 15px;
+  background-color:#fafafb !important;
 }
-.logo-title{
+
+.logo-title {
   font-family: 'Pacifico', cursive !important;
-  font-size: 25px;
+  font-size: 40px;
+  line-height: 0.86;
   text-decoration: none !important;
-  color: white !important
+  color: #598cffe6 !important;
 }
+
+.Navigation-inputInput-8 {
+  width: 120px;
+  background-color: aliceblue !important;
+}
+
+.MuiAppBar-colorPrimary {
+  color: rgb(7, 7, 7) !important;
+}
+
+.Navigation-searchIcon-6 {
+  width: 72px;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+  z-index:100000 !important;
+}
+
 .header-logo{
     margin-right: 24px;
   }
 .category-drawer{
   width: 300px !important;
+  z-index: o;
 }
 .list-item span, .list-item i{
   font-size:1.2rem;
@@ -27,7 +50,6 @@ header{
   height:30px;
   font-size:22px;
   line-height:2;
-  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 .category-header div{
   margin-left:12px;

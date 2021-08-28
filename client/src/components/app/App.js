@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navigation from '../../components/navigation/navigation';
-import Weather from '../../components/weather/weather';
-import News from '../../components/news/news';
+import Navigation from '../navigation/navigation';
+import Weather from '../weather/weather';
+import News from '../news/news';
 import NewsService from '../../services/news.service';
 import sources from './sources/sources';
 import { Provider } from '../../context';
@@ -20,7 +20,7 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.getNews();
   }
 

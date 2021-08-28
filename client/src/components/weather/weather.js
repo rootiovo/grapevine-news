@@ -17,8 +17,7 @@ class Weather extends Component {
 
   };
 
-
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     // get weather data for current geolocation
     navigator.geolocation.getCurrentPosition((position) => {
       const coords = position;

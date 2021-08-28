@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
-    "axios": "^0.19.2",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "axios": "^0.21.1",
     "babel-core": "6.14.0",
     "concurrently": "^3.6.1",
     "curl": "^0.1.4",
@@ -16,7 +16,7 @@
     "node-fetch": "^2.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^1.1.5"
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
