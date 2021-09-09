@@ -5,6 +5,8 @@ hr {
 .weather{
     width: 30rem;
     display: flex;
+    background-color: #112240 !important;
+    font:aliceblue;
 }
 .weather-summary{
     margin-bottom: 0 !important;
@@ -40,31 +42,35 @@ hr {
 .container-current{
     display:flex;
     flex-direction: row;
+    color:#ccd6f6 !important;
 }
 .container-forecast{
     display:flex;
     flex-direction:row;
-}
+} 
 .column-forecast{
     flex:1;
     text-align:center;
-    
+    color:#ccd6f6 !important;
 }
+
 .weather-header{
     margin:5px;
     margin-bottom:0;
     font-size:25px;
-    color:rgb(0, 0, 0);
+    color:#ccd6f6 !important;
     text-align:left;
 }
 .current-status{
     margin-top:10px;
     font-size:20px;
     text-align: center;
+    color:#ccd6f6 !important;
 }
 .forecast-high{
     margin: 0;
     font-size: 18px;
+    color:#ccd6f6 !important;
 }
 .forecast-low{
     margin:0;
