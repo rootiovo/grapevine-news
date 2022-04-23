@@ -1,5 +1,5 @@
 header{
-  background-color:#0a192f !important;
+  background-color:#fafafb !important;
 }
 
 .logo-title {
@@ -7,16 +7,16 @@ header{
   font-size: 40px;
   line-height: 0.86;
   text-decoration: none !important;
-  color: #ccd6f6 !important;
+  color: #598cffe6 !important;
 }
 
 .Navigation-inputInput-8 {
   width: 120px;
-  background-color:#102648 !important;
+  background-color: aliceblue !important;
 }
 
 .MuiAppBar-colorPrimary {
-  color: rgb(153, 153, 153) !important;
+  color: rgb(7, 7, 7) !important;
 }
 
 .Navigation-searchIcon-6 {

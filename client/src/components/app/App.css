@@ -4,10 +4,11 @@ body {
   margin: 0 !important;
 }
 a {
-  color: #ccd6f6 !important;
+  color: #5590ad !important;
   text-decoration: none !important;
 }
 a:hover {
+  color: #1b6c95 !important;
   text-decoration: none !important;
 }
 .navbar {
@@ -33,7 +34,6 @@ a:hover {
   display:flex;
   justify-content:space-around;
   flex-wrap: wrap;
-  background-color: #0a192f !important;
 }
 .column {
   flex: 1;

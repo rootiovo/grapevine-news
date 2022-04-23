@@ -11,13 +11,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import moment from 'moment';
 import './article.css';
 
-const styles = (theme) => ({
+const styles = theme => ({
   card: {
     // maxWidth: 750,
     marginBottom: '25px;',
-    backgroundColor: '#112240;',
-    borderColor: 'white;',
-    textColor: 'white;'
   },
   media: {
     height: 0,

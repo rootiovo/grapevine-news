@@ -184,6 +184,10 @@ class Weather extends Component {
                 &nbsp;
                 {this.state.weather.daily.summary}
               </div>
+              {/* <hr />
+              <div>
+                <span><a href='/'>C</a> | <strong><a href='/'>F</a></strong> | <a href='/'>K</a></span>
+              </div> */}
             </div>
           )}
         </Paper>
